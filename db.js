@@ -5,6 +5,7 @@ var config = {
     user     : 'root',
     password : '',
     database : 'education',
+    insecureAuth : true
 //    debug: ['ComQueryPacket', 'RowDataPacket']
   }
 
