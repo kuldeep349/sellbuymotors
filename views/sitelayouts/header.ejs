@@ -1,50 +1,77 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Revoedubook</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
-	<link rel="stylesheet" href="../css/owl.carousel.css">
-  </head>
-  <body>
-    <!-- Navbar Section Start -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white custom_menu sticky-top">
-      <div class="container-fluid">
-        <a class="navbar-brand text-danger" href="/"><img src="../images/site-logo.PNG" alt="" width="130"></a>
-         <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="icon-bar top-bar"></span>
-          <span class="icon-bar middle-bar"></span>
-          <span class="icon-bar bottom-bar"></span>
-          <span class="sr-only">Toggle navigation</span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarResponsive">
-          <ul class="navbar-nav ">
-            <li class="nav-item active">
-              <a class="nav-link" href="/">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/">Study Material</a>
-            </li>
-			<li class="nav-item">
-              <a class="nav-link" href="test_your_self">Test Yourself</a>
-            </li>
-			<li class="nav-item">
-              <a class="nav-link" href="career-guidance">Career Guidance</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="entrance_exam">Entrance Exams</a>
-            </li>
-			<li class="nav-item">
-              <a class="nav-link" href="blog-discussion">Blogs & Discussions</a>
-            </li>
-          </ul>
-          <form class="form-inline my-2 ml-3 my-lg-0">
-		      <button class="btn btn-success my-2 my-sm-0 register_btn" type="button" data-toggle="modal" data-target="#register">Register</button>
-		  </form>
-        </div>
-      </div>
-    </nav>
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>SellBuyMotors</title>  
+        
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" href="favicon.ico">
+
+        <!--Plugin CSS-->
+        <link href="dist/css/plugins.min.css" rel="stylesheet">
+
+        <!--main Css-->
+        <link href="dist/css/main.min.css" rel="stylesheet">
+    </head>
+    <body> 
+        <!-- Header-->
+        <header id="header-fix" class="main-header">
+            <div class="top-bar py-lg-0 py-2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-md-6 text-center text-md-left align-self-center">
+                            <ul class="list-inline mb-0">
+                                <li class="list-inline-item"><a href="mailto:info@sellbuymotors.co.uk"><i class="fa fa-envelope pr-1"></i> info@sellbuymotors.co.uk</a></li>
+                                <li class="list-inline-item"><a href="tel:+447854858377"><i class="fa fa-phone pr-1"></i> +447854858377</a></li>
+                            </ul> 
+                        </div> 
+                        <div class="col-12 col-md-6 text-center text-md-right">
+                            <div class="top-right">
+                                <ul class="list-inline mb-0">
+                                    <li class="list-inline-item"><i class="fa fa-user pr-1"></i> <a href="#signup" class="c-primary login_form"> Login </a> Or <a href="#signup" class="register_form c-primary"> Register </a></li>
+                                    <li class="list-inline-item dropdown"><a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-language pr-1"></i> ENG </a>
+                                        <div class="dropdown-menu rounded-0 border-0 py-0">
+                                            <a class="dropdown-item" href="#">English</a>
+                                            <a class="dropdown-item" href="#">French</a>
+                                            <a class="dropdown-item" href="#">Russian</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-light py-lg-0 py-3 px-0">
+                    <a class="navbar-brand" href="index.php"><img src="dist/images/logo-v1.png" alt="" class="img-fluid" /></a>
+                    <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                        <span class="navbar-toggler-icon"></span>
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                      <ul class="navbar-nav ml-auto mr-lg-4 mt-4 mt-lg-0">
+                        <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/search-cars?type=New">New-Cars</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/search-cars?type=Used">Used-Cars</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/search-cars?type=ALL">All-Call</a></li>
+                       
+                      </ul>
+                      <form class="form-inline my-2 my-lg-0">
+                            <a href="sell-car.php" class="btn btn-primary my-2 my-sm-0 btn-sm">Sell Car</a>
+                            <div class="form-group position-relative mb-0">
+                                <input class="form-control ml-sm-2 rounded-0" type="search" placeholder="Search">
+                                <div class="search position-absolute">
+                                    <a href="#"><i class="fa fa-search"></i></a>
+                                </div>
+                            </div>
+                      </form>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <!-- End Header--> 

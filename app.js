@@ -46,18 +46,6 @@ app.set('view engine', 'ejs')
  */
 var index = require('./routes/index')
 var users = require('./routes/users')
-var cl =require('./routes/class')
-var cont =require('./routes/contents')
-var board = require('./routes/board')
-var fld=require('./routes/topic')
-var strm=require('./routes/streams')
-var sbj=require('./routes/subject')
-var exm=require('./routes/exam')
-var tcr=require('./routes/category')
-var home=require('./routes/home')
-var site=require('./routes/site')
-var admin=require('./routes/admin')
-var reg=require('./routes/registration')
 
 // for front end
 /*app.get('/', function(req, res){
@@ -127,26 +115,13 @@ app.use(session({
 }))
 app.use(flash())
 app.use('/', index)
-//app.use('/reb/users', users)
-app.use('/admin/class',cl)
-app.use('/admin/content',cont)
-app.use('/admin/board',board)
-app.use('/admin/topic',fld)
-//app.use('/reb/streams',strm)
-app.use('/admin/subject',sbj)
-//app.use('/reb/exam',exm)
-app.use('/admin/category',tcr)
-//app.use('/reb/home',home)
-app.use('/site',site)
-app.use('/admin',admin)
-app.use('/registration',reg)
+//app.use('/search-cars', index)
+app.use('/reb/users', users)
+
+app.use(express.static(path.join(__dirname, 'SiteAssets')));
 
 
-
-app.use(express.static(path.join(__dirname, 'assets')));
-
-
-app.use(express.static(path.join(__dirname, 'assets/uploads/pdf/')));
+//app.use(express.static(path.join(__dirname, 'assets/uploads/pdf/')));
 
 
 app.listen(3000, function(){

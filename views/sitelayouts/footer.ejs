@@ -1,240 +1,175 @@
 
-    <!-- Footer Section -->
-    <div class="footer_bg">
-      <div class="container-fluid">
-       <div class="row">
-          <div class="col-lg-5 col-sm-12">
-            <div class="footer_link">
-              <img src="../images/site-logo.PNG" alt="" width="130">
-              <p class="mt-3 mb-1 pr-3">Lorem Ipsum is simply dummy text of the printing and typesetting industry. printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-              <p class="pr-3">Lorem Ipsum has been the industry's standard dummy text. printing and typesetting.</p>
-            </div>
-          </div>
-          <div class="col-lg-2 col-sm-4">
-            <div class="footer_link">
-              <h5>Usefull Links</h5>
-              <a href="#">Home</a>
-              <a href="#">About Us</a>
-              <a href="#">Our Services</a>
-              <a href="#">Testimonial</a>
-              <a href="#">Contact Us</a>
-            </div>
-          </div>
-          <div class="col-lg-2 col-md-4 col-sm-4">
-            <div class="footer_link">
-              <h5>Category</h5>
-              <a href="#"><!--i class="fas fa-angle-right"></i--> Home</a>
-              <a href="#"> About Us</a>
-              <a href="#"> Our Services</a>
-              <a href="#"> Testimonial</a>
-              <a href="#"> Contact Us</a>
-            </div>
-          </div>
-          <div class="col-lg-3 col-sm-4">
-            <div class="footer_contactlink">
-              <h5>Contact Us</h5>
-              <a href=""><i class="fas fa-map-marker-alt mr-2"></i> No 304, Sky Tower, New York, USA</a>
-              <a href=""><i class="fas fa-phone-volume mr-2"></i> +91 85459-87454</a>
-              <a href=""><i class="fas fa-envelope mr-2"></i> info@gmail.com</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+        
+              <!-- Footer Top -->
+        <section class="footer c-bg-dark">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-lg-3 mb-4 mb-lg-0">
+                        <h6 class="text-white">About-Us</h6>
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu..
 
-	<!-- Copyright Section -->
-    <div class="copy_right">
-      <div class="container-fluid">
-		<p>	&#169; copyright 2018. All Right Reserved</p>
-      </div>
-    </div>
-
-
-
-
-<!-- large modal -->
-<div class="modal fade register_form" id="register" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2 class="modal-title text-center" id="myModalLabel">Register</h2>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form class="form" action="/registration/user_registration" id="myform" method="post">
-			<div class="form-row">
-				<div class="col-md-6">
-				<div class="form-group">
-				  <label>First Name:</label>
-				  <input type="text" class="form-control" name="fname" required="true">
-				</div>
-				</div>
-				<div class="col-md-6">
-				<div class="form-group">
-				  <label>Last Name:</label>
-				  <input type="text" class="form-control" name="lname" required="true">
-				</div>
-				</div>
-				<div class="col-md-6">
-				<div class="form-group">
-				  <label>Email:</label>
-				  <input type="email" class="form-control" name="email" required="true">
-				</div>
-				</div>
-				<div class="col-md-6">
-				<div class="form-group">
-				  <label>Phone:</label>
-				  <input type="number" class="form-control" name="phone" required="true">
-				</div>
-				</div>
-				<div class="col-md-6">
-				<div class="form-group">
-				  <label>Password:</label>
-				  <input type="password" class="form-control" name="password" id="password" required="true">
-				</div>
-				</div>
-				<div class="col-md-6">
-				<div class="form-group">
-				  <label>Confirm Password:</label>
-				  <input type="password" class="form-control"  name="cpassword" id="mychange" required="true">
-				</div>
-				</div>
-				<div class="col-md-12">
-				<button type="submit" class="btn btn-success register_btn my-2">Submit</button>
-				<button type="button" class="btn btn-default cancel_btn  my-2" data-dismiss="modal">Cancel</button>
-				</div>
-			</div>
-		</form>
-      </div>
-      <!--div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div-->
-    </div>
-  </div>
-</div>
-
-     <!-- Js Files -->
-    <script src="../js/jquery.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="../js/owl.carousel.js"></script>
-	<script>
-		$(document).ready(function () {
-			$("#owl-demo, #owl-demo1").owlCarousel({
-				//autoPlay: 3000, //Set AutoPlay to 3 seconds
-				items: 5,
-				itemsDesktop: [1199, 4],
-				itemsDesktopSmall: [992, 3],
-				itemsTablet: [768, 2],
-				itemsMobile: [479, 2],
-				stopOnHover: true,
-				loop: true,
-				navigation:true,
-				navigationText: ["<i class='fas fa-angle-right'></i>","<i class='fas fa-angle-left'></i>"]
-			});
-		});
-	</script>
-    <script>
-    jQuery.fn.liScroll = function(settings) {
-    settings = jQuery.extend({
-    travelocity: 0.03
-    }, settings);   
-    return this.each(function(){
-        var $strip = jQuery(this);
-        $strip.addClass("newsticker")
-        var stripHeight = 1;
-        $strip.find("li").each(function(i){
-          stripHeight += jQuery(this, i).outerHeight(true); // thanks to Michael Haszprunar and Fabien Volpi
-        });
-        var $mask = $strip.wrap("<div class='mask'></div>");
-        var $tickercontainer = $strip.parent().wrap("<div class='tickercontainer'></div>");               
-        var containerHeight = $strip.parent().parent().height();  //a.k.a. 'mask' width   
-        $strip.height(stripHeight);     
-        var totalTravel = stripHeight;
-        var defTiming = totalTravel/settings.travelocity; // thanks to Scott Waye   
-        function scrollnews(spazio, tempo){
-        $strip.animate({top: '-='+ spazio}, tempo, "linear", function(){$strip.css("top", containerHeight); scrollnews(totalTravel, defTiming);});
-        }
-        scrollnews(totalTravel, defTiming);       
-        $strip.hover(function(){
-        jQuery(this).stop();
-        },
-        function(){
-        var offset = jQuery(this).offset();
-        var residualSpace = offset.top + stripHeight;
-        var residualTime = residualSpace/settings.travelocity;
-        scrollnews(residualSpace, residualTime);
-        });     
-      }); 
-    };
-
-    $(function(){
-      $("ul#ticker01").liScroll();
-    });
-  </script>
-  <script type="text/javascript">
-          $(document).ready(function () {
-        $('.arrow_change').click(function(){
-            icon = $(this).find("i");
-            icon.toggleClass("fas fa-angle-down fas fa-angle-right") 
-        })
-          });
-      </script>
-      <script>
-   
-      //alert('ok');
-   
-     
-
-     $(document).on('submit','#myform',function(e){
-       // alert('ok');
-                    e.preventDefault();
-                 var pass = $('#password').val();
-                 var cpass = $('#mychange').val();
-                  if(pass!== cpass){
-
-                  alert('Password Did Not Matched!!');
-
-
-                    $('#password').focus();
-                    $('#password').css('box-shadow', '0 0 0 0.2rem rgba(226, 8, 18, 0.25');
-                   $('#password').css('border-color', 'red');
-
-                    $('#mychange').focus();
-                    $('#mychange').css('box-shadow', '0 0 0 0.2rem rgba(226, 8, 18, 0.25');
-                   $('#mychange').css('border-color', 'red');
-
-                   
-
-                      return false;
-
-                   }else{
-                    var formData = new FormData(this);  
-                    console.log()                
-                    $.post({
-                        type:'POST',
-                        url:$(this).attr('action'),
-                        data:formData,
-                        cashe:false,
-                        contentType:false,
-                        processData:false,                      
-                        success:function(data){
-                         //  alert(data)
-                            alert(data.message);
-                            location.reload();
-                        },
-                        error:function(data){
+</p>
+                        
+                    </div>
+                    <div class="col-12 col-lg-6 mb-4 mb-lg-0">
+                        <div class="row">
+                            <div class="col-12 col-sm-4 mb-4 mb-sm-0">
+                                <h6 class="text-white">Brands</h6>
+                                <ul class="list-unstyled footer-links mb-0">
+                                    <li><a href="#"><i class="fa fa-angle-right pr-2"></i> BMW</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-right pr-2"></i> Mercedes</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-right pr-2"></i> Lamborghini</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-right pr-2"></i> Audi</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-right pr-2"></i> Porsche</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-right pr-2"></i> Ford</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-12 col-sm-4 mb-4 mb-sm-0">
+                                <h6 class="text-white">Overview</h6>
+                                <ul class="list-unstyled footer-links mb-0">
+                                    <li><a href="#"><i class="fa fa-angle-right pr-2"></i> About Us</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-right pr-2"></i> Feedback</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-right pr-2"></i> Advertise with us</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-right pr-2"></i> Contact Us</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-right pr-2"></i> FAQs</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-right pr-2"></i> Sitemap</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                <h6 class="text-white">Other</h6>
+                                <ul class="list-unstyled footer-links mb-0">
+                                    <li><a href="#"><i class="fa fa-angle-right pr-2"></i> Careers</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-right pr-2"></i> Customer Care</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-right pr-2"></i> Privacy Policy</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-right pr-2"></i> Terms & Conditions</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-right pr-2"></i> Sitemapa </a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-3">
+                        <h6 class="text-white">Contact Info</h6>
+                        <p>Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim aliquam.</p>
+                        <ul class="list-unstyled footer-address mb-0">
                             
-                            alert(data.message);
-                        }
-                    },'json');
+                            <li><a href="tel:+447854858377"><i class="fa fa-phone pr-2"></i> +447854858377</a></li>
+                            <li><a href="mailto:info@sellbuymotors.co.uk"><i class="fa fa-envelope pr-2"></i> info@sellbuymotors.co.uk</a></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Footer Top-->
+        
+        <!-- Footer Bottom -->
+        <section class="footer-bottom c-bg-dark py-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-lg-8 text-lg-left text-center mb-3 mb-lg-0">
+                        <span class="copyright">Copyright &copy; 2018 Powered By <a href="#">Sellbuymotosr.co.uk</a>  All Rights Reserved.</span>
+                    </div>
+                    <div class="col-12 col-lg-4 text-lg-right text-center">
+                        <ul class="list-inline footer-social mb-0">
+                            <li class="list-inline-item"><a href="#"><i class="fa fa-facebook pr-3"></i></a></li>
+                            <li class="list-inline-item"><a href="#"><i class="fa fa-twitter pr-3"></i></a></li>
+                            <li class="list-inline-item"><a href="#"><i class="fa fa-linkedin pr-3"></i></a></li>
+                            <li class="list-inline-item"><a href="#"><i class="fa fa-youtube-play pr-3"></i></a></li>
+                            <li class="list-inline-item"><a href="#"><i class="fa fa-pinterest-p pr-3"></i></a></li>
+                            <li class="list-inline-item"><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Footer Bottom -->
+        
+        <!-- Top To Bottom-->
+        <div class="scrollup">
+            <img src="dist/images/up-arrow.svg" class="img-fluid" />
+        </div>
+        <!-- End Top To Bottom-->
+      
+        <!-- Login /Register Form-->
+        <div id="signup" class="popupContainer bg-white">
+            <header class="popupHeader p-3 text-uppercase">
+                <span class="header_title font-weight-bold c-dark">Login</span>
+                <span class="modal_close float-right"><i class="fa fa-times"></i></span>
+            </header>
+            <div class="card-body">
+                <!-- Social Login -->						
+                <!-- Username & Password Login form -->
+                <div class="user_login">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" class="form-control rounded-0" placeholder="username or email address" />
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control rounded-0" placeholder="password" />
+                        </div>
+                        <div class="checkbox form-group">
+                            <input id="remember" type="checkbox" />
+                            <label for="remember">Remember me on this computer</label>
+                        </div>
+                        <div class="action_btns form-group">
+                            <a href="#" class="btn btn-primary btn-md btn-block">Login</a>
+                        </div>
+                        <div class="form-group mb-0 text-center">
+                            <p>Sign in with your social network</p>
+                            <ul class="list-inline footer-social mb-2">
+                                <li class="list-inline-item"><a href="#"><i class="fa fa-facebook pr-3"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="fa fa-twitter pr-3"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="fa fa-linkedin pr-3"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="fa fa-pinterest-p pr-3"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            </ul>
+                            <div class="border border-top-0 c-brd-light my-3"></div>
+                            Don't have an account <a href="#" class="register_form c-primary">Sign Up</a>
+                        </div>  
+                    </form>
+                </div>
 
-                  }
-                });
-     
-      </script>
-     
-  </body>
+                <!-- Register Form -->
+                <div class="user_register">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" class="form-control rounded-0" placeholder="Username" />
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control rounded-0" placeholder="Email Address" />
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control rounded-0" placeholder="Password" />
+                        </div>
+                        <div class="checkbox form-group">
+                            <input id="send_updates" type="checkbox" />
+                            <label for="send_updates">Send me occasional email updates</label>
+                        </div>
+                        <div class="action_btns form-group">
+                            <a href="#" class="btn btn-primary btn-md btn-block">Register</a>
+                        </div>
+                        <div class="form-group mb-0 text-center">
+                            <p>Register with your social network</p>
+                            <ul class="list-inline footer-social mb-2">
+                                <li class="list-inline-item"><a href="#"><i class="fa fa-facebook pr-3"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="fa fa-twitter pr-3"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="fa fa-linkedin pr-3"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="fa fa-pinterest-p pr-3"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            </ul>
+                            <div class="border border-top-0 c-brd-light my-3"></div>
+                            Already have an account <a href="#" class="login_form c-primary">Sign In</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- End Login /Register Form-->
+        
+        <!-- jQuery -->
+        <script src="dist/js/plugins.min.js"></script>
+        <script src="dist/js/common.js"></script>
+    </body>
+
 </html>
+  
