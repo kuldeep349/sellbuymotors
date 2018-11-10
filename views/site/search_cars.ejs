@@ -1,4 +1,9 @@
 <%- include ../sitelayouts/header.ejs %>
+<style>
+    .col-md-4{
+        float: left;
+    }
+</style>
 <section>
     <div class="background-image-maker gradient gradient-lr"></div>
     <div class="holder-image">
@@ -40,125 +45,28 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12 col-sm-6 col-md-4 col-xl-12">
-                                    <label class="c-dark">Select City</label>
+                                    <label class="c-dark">Radius</label>
                                     <div class="form-group">
-                                        <select class="form-control rounded">
-                                            <option value="">--- Select City ---</option>
-                                            <option value="New Delhi">New Delhi</option>
-                                            <option value="Bangalore">Bangalore</option>
+                                        <select class="form-control rounded" id="radius">
+
                                         </select>
                                     </div>
                                 </div>  
                                 <div class="col-12 col-sm-6 col-md-4 col-xl-12">
-                                    <label class="c-dark">Body Type</label>
+                                    <label class="c-dark">make</label>
                                     <div class="form-group">
-                                        <select class="form-control rounded">
-                                            <option value="Sedan">Sedan</option>
-                                            <option value="Hatchback">Hatchback</option>
-                                            <option value="SUV">SUV</option>
-                                            <option value="Minivan">Minivan</option>
-                                            <option value="Pickup">Pickup</option>
-                                            <option value="Coupe Car">Coupe Car</option>
-                                            <option value="Convertible">Convertible</option>
+                                        <select class="form-control" id="make">
+
                                         </select>
                                     </div>
                                 </div> 
                                 <div class="col-12 col-sm-6 col-md-4 col-xl-12">
-                                    <label class="c-dark">Budget ($)</label>
+                                    <label class="c-dark">model</label>
                                     <div class="form-group">
-                                        <select class="form-control rounded">
-                                            <option value="20,000 - 1,00,000">20,000 - 1,00,000</option>
-                                            <option value="5,00,000 - 10,00,000">5,00,000 - 10,00,000</option>
-                                            <option value="10,00,000 - 20,00,000">10,00,000 - 20,00,000</option>
-                                            <option value="20,00,000 - 50,00,000">20,00,000 - 50,00,000</option>
-                                            <option value="50,00,000 - 100,00,000">50,00,000 - 100,00,000</option>
-                                            <option value="above-1-crore">Above 1 Crore</option>
+                                        <select class="form-control rounded" id="model">
                                         </select>
                                     </div>
                                 </div> 
-                                <div class="col-12 col-sm-6 col-md-4 col-xl-12">
-                                    <label class="c-dark">Brand</label>
-                                    <div class="form-group">
-                                        <select class="form-control rounded">
-                                            <option value="Ford">Ford </option>
-                                            <option value="Volvo">Volvo</option>
-                                        </select>
-                                    </div>
-                                </div> 
-                                <div class="col-12 col-sm-6 col-md-4 col-xl-12">
-                                    <label class="c-dark">Model</label>
-                                    <div class="form-group">
-                                        <select class="form-control rounded">
-                                            <option value="Ford Mustang">Mustang </option>
-                                            <option value="Volvo XC90 Inscription">Volvo XC90 Inscription</option>
-                                        </select>
-                                    </div>
-                                </div> 
-                                <div class="col-12 col-sm-6 col-md-4 col-xl-12">
-                                    <label class="c-dark">Make Year</label>
-                                    <div class="form-group">
-                                        <select class="form-control rounded">
-                                            <option value="2016">2016 </option>
-                                            <option value="2015">2015 </option>
-                                            <option value="2014">2014 </option>
-                                            <option value="2013">2013 </option>
-                                            <option value="2012">2012 </option>
-                                            <option value="2011">2011 </option>
-                                        </select>
-                                    </div>
-                                </div> 
-                                <div class="col-12 col-sm-6 col-md-4 col-xl-12">
-                                    <label class="c-dark">Killometers Driven</label>
-                                    <div class="form-group">
-                                        <select class="form-control rounded">
-                                            <option value="50,000 km">50,000 km</option>
-                                            <option value="20,000 km">20,000 km</option>
-                                            <option value="15,000 km">15,000 km</option>
-                                            <option value="60,000 km">60,000 km</option>
-                                            <option value="70,000 km">70,000 km</option>
-                                            <option value="30,000 km">30,000 km</option>
-                                            <option value="80,000 km">80,000 km</option>
-                                            <option value="90,000 km">90,000 km</option>
-                                            <option value="100,000 km">100,000 km</option>
-                                        </select>
-                                    </div>
-                                </div> 
-                                <div class="col-12 col-sm-6 col-md-4 col-xl-12">
-                                    <label class="c-dark">Fuel Type</label>
-                                    <div class="form-group">
-                                        <select class="form-control rounded">
-                                            <option value="Petrol">Petrol</option>
-                                            <option value="Diesal">Diesal</option>
-                                            <option value="CNG">CNG</option>
-                                            <option value="Electric">Electric</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-6 col-md-4 col-xl-12">
-                                    <label class="c-dark">Transmission</label>
-                                    <div class="form-group">
-                                        <select class="form-control rounded">
-                                            <option value="Automatic">Automatic</option>
-                                            <option value="Manual">Manual</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-6 col-md-4 col-xl-12">
-                                    <label class="c-dark">Colors</label>
-                                    <div class="form-group">
-                                        <select class="form-control rounded">
-                                            <option value="Gray">Gray</option>
-                                            <option value="White">White</option>
-                                            <option value="Blue">Blue</option>
-                                            <option value="Green">Green</option>
-                                            <option value="Black">Black</option>
-                                            <option value="Pink">Pink</option>
-                                            <option value="Red">Red</option>
-                                            <option value="Yellow">Yellow</option>
-                                            <option value="More Colors">More Colors</option>
-                                        </select>
-                                    </div>
-                                </div>
                                 <div class="col-12 col-md-4 col-xl-12">
                                     <label class="mb-4"></label>
                                     <div class="form-group mb-0">
@@ -176,444 +84,10 @@
                 <div class="col-12 col-lg-12">
                     <div class="row mb-4">
                         <div class="col-12 col-md-5 col-xl-6 align-self-center">
-                            <p class="mb-0">8 Vehicles Matching</p>
+                            <p class="mb-0" id="foundCar">8 Vehicles Matching</p>
                         </div>
                     </div>
-                    <div class="card car-listing-full mb-4">
-                        <div class="row">
-                            <div class="col-12 col-lg-4 h-283">
-                                <div class="position-relative">
-                                    <a href="#">
-                                        <div class="background-image-maker rounded-left h-283"></div>
-                                        <div class="holder-image">
-                                            <img src="dist/images/img5.jpg" alt="" class="img-fluid d-none" />
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-5 align-self-center">
-                                <div class="p-4 p-lg-0">
-                                    <h6 class="mb-2"><a href="listing-details.php">Aston Martin DB5</a></h6>
-                                    <ul class="list-unstyled mb-2 c-line-height-2_5">
-                                        <li><h6 class="c-primary mb-0"><small class="c-light">Price</small> $28,600 </h6></li>
-                                        <li><i class="fa fa-map-marker pr-1"></i> South City, New York</li>
-                                    </ul>
-                                    <ul class="list-inline">
-                                        <li class="list-inline-item mr-3"><a href="#" class="c-light"><i class="flaticon-calendar pr-1"></i> 2015 </a></li>
-                                        <li class="list-inline-item mr-3"><a href="#" class="c-light"><i class="flaticon-clock pr-1"></i> 35,000</a></li>
-                                        <li class="list-inline-item mr-3"><a href="#" class="c-light"><i class="flaticon-fuel pr-1"></i>  Petrol </a></li>
-                                        <li class="list-inline-item"><a href="#" class="c-light"><i class="flaticon-transport-2 pr-1"></i>  Auto </a></li>
-                                    </ul>
-                                    <a href="listing-details.php" class="btn btn-outline-primary text-uppercase btn-lg c-font-weight-700" tabindex="-1">View Details</a>
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-3">
-                                <div class="border border-right-0 border-top-0 border-bottom-0 c-brd-light py-4">
-                                    <table class="table mb-0 c-line-height-1 c-brd-light">
-                                        <tbody>
-                                            <tr>
-                                                <td class="c-dark c-font-weight-600 b-r">Body Type:</td>
-                                                <td>Hatchback</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="c-dark c-font-weight-600 b-r">Brand:</td>
-                                                <td>Aston</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="c-dark c-font-weight-600 b-r">Model:</td>
-                                                <td>2015</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="c-dark c-font-weight-600 b-r">Fuel Type:</td>
-                                                <td>Diesel</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="c-dark c-font-weight-600 b-r">Transmission:</td>
-                                                <td>Automatic</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="c-dark c-font-weight-600 b-r">Color:</td>
-                                                <td>Gray</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div> 
-                    </div>
-                    <div class="card car-listing-full mb-4">
-                        <div class="row">
-                            <div class="col-12 col-lg-4 h-283">
-                                <div class="position-relative">
-                                    <a href="#">
-                                        <div class="background-image-maker rounded-left h-283"></div>
-                                        <div class="holder-image">
-                                            <img src="dist/images/img6.jpg" alt="" class="img-fluid d-none" />
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-5 align-self-center">
-                                <div class="p-4 p-lg-0">
-                                    <h6 class="mb-2"><a href="listing-details.php">Chevrolet camaro SS</a></h6>
-                                    <ul class="list-unstyled mb-2 c-line-height-2_5">
-                                        <li><h6 class="c-primary mb-0"><small class="c-light">Price</small> $35,800 </h6></li>
-                                        <li><i class="fa fa-map-marker pr-1"></i> South City, New York</li>
-                                    </ul>
-                                    <ul class="list-inline">
-                                        <li class="list-inline-item mr-3"><a href="#" class="c-light"><i class="flaticon-calendar pr-1"></i> 2015 </a></li>
-                                        <li class="list-inline-item mr-3"><a href="#" class="c-light"><i class="flaticon-clock pr-1"></i> 35,000</a></li>
-                                        <li class="list-inline-item mr-3"><a href="#" class="c-light"><i class="flaticon-fuel pr-1"></i>  Petrol </a></li>
-                                        <li class="list-inline-item"><a href="#" class="c-light"><i class="flaticon-transport-2 pr-1"></i>  Auto </a></li>
-                                    </ul>
-                                    <a href="listing-details.php" class="btn btn-outline-primary text-uppercase btn-lg c-font-weight-700" tabindex="-1">View Details</a>
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-3">
-                                <div class="border border-right-0 border-top-0 border-bottom-0 c-brd-light py-4">
-                                    <table class="table mb-0 c-line-height-1 c-brd-light">
-                                        <tbody>
-                                            <tr>
-                                                <td class="c-dark c-font-weight-600 b-r">Body Type:</td>
-                                                <td>Convertible</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="c-dark c-font-weight-600 b-r">Brand:</td>
-                                                <td>Chevrolet</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="c-dark c-font-weight-600 b-r">Model:</td>
-                                                <td>2016</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="c-dark c-font-weight-600 b-r">Fuel Type:</td>
-                                                <td>Petrol</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="c-dark c-font-weight-600 b-r">Transmission:</td>
-                                                <td>Automatic</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="c-dark c-font-weight-600 b-r">Color:</td>
-                                                <td>Red</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div> 
-                    </div>
-                    <div class="card car-listing-full mb-4">
-                        <div class="row">
-                            <div class="col-12 col-lg-4 h-283">
-                                <div class="position-relative">
-                                    <a href="#">
-                                        <div class="background-image-maker rounded-left h-283"></div>
-                                        <div class="holder-image">
-                                            <img src="dist/images/img10.jpg" alt="" class="img-fluid d-none" />
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-5 align-self-center">
-                                <div class="p-4 p-lg-0">
-                                    <h6 class="mb-2"><a href="listing-details.php">Aston Martin DB5</a></h6>
-                                    <ul class="list-unstyled mb-2 c-line-height-2_5">
-                                        <li><h6 class="c-primary mb-0"><small class="c-light">Price</small> $28,600 </h6></li>
-                                        <li><i class="fa fa-map-marker pr-1"></i> South City, New York</li>
-                                    </ul>
-                                    <ul class="list-inline">
-                                        <li class="list-inline-item mr-3"><a href="#" class="c-light"><i class="flaticon-calendar pr-1"></i> 2015 </a></li>
-                                        <li class="list-inline-item mr-3"><a href="#" class="c-light"><i class="flaticon-clock pr-1"></i> 35,000</a></li>
-                                        <li class="list-inline-item mr-3"><a href="#" class="c-light"><i class="flaticon-fuel pr-1"></i>  Petrol </a></li>
-                                        <li class="list-inline-item"><a href="#" class="c-light"><i class="flaticon-transport-2 pr-1"></i>  Auto </a></li>
-                                    </ul>
-                                    <a href="listing-details.php" class="btn btn-outline-primary text-uppercase btn-lg c-font-weight-700" tabindex="-1">View Details</a>
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-3">
-                                <div class="border border-right-0 border-top-0 border-bottom-0 c-brd-light py-4">
-                                    <table class="table mb-0 c-line-height-1 c-brd-light">
-                                        <tbody>
-                                            <tr>
-                                                <td class="c-dark c-font-weight-600 b-r">Body Type:</td>
-                                                <td>Couple</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="c-dark c-font-weight-600 b-r">Brand:</td>
-                                                <td>Aston</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="c-dark c-font-weight-600 b-r">Model:</td>
-                                                <td>2015</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="c-dark c-font-weight-600 b-r">Fuel Type:</td>
-                                                <td>Diesel</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="c-dark c-font-weight-600 b-r">Transmission:</td>
-                                                <td>Manual</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="c-dark c-font-weight-600 b-r">Color:</td>
-                                                <td>Blue</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div> 
-                    </div>
-                    <div class="card car-listing-full mb-4">
-                        <div class="row">
-                            <div class="col-12 col-lg-4 h-283">
-                                <div class="position-relative">
-                                    <a href="#">
-                                        <div class="background-image-maker rounded-left h-283"></div>
-                                        <div class="holder-image">
-                                            <img src="dist/images/img7.jpg" alt="" class="img-fluid d-none" />
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-5 align-self-center">
-                                <div class="p-4 p-lg-0">
-                                    <h6 class="mb-2"><a href="listing-details.php">Land Rover Discovery XXV</a></h6>
-                                    <ul class="list-unstyled mb-2 c-line-height-2_5">
-                                        <li><h6 class="c-primary mb-0"><small class="c-light">Price</small> $41,300 </h6></li>
-                                        <li><i class="fa fa-map-marker pr-1"></i> South City, New York</li>
-                                    </ul>
-                                    <ul class="list-inline">
-                                        <li class="list-inline-item mr-3"><a href="#" class="c-light"><i class="flaticon-calendar pr-1"></i> 2015 </a></li>
-                                        <li class="list-inline-item mr-3"><a href="#" class="c-light"><i class="flaticon-clock pr-1"></i> 35,000</a></li>
-                                        <li class="list-inline-item mr-3"><a href="#" class="c-light"><i class="flaticon-fuel pr-1"></i>  Petrol </a></li>
-                                        <li class="list-inline-item"><a href="#" class="c-light"><i class="flaticon-transport-2 pr-1"></i>  Auto </a></li>
-                                    </ul>
-                                    <a href="listing-details.php" class="btn btn-outline-primary text-uppercase btn-lg c-font-weight-700" tabindex="-1">View Details</a>
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-3">
-                                <div class="border border-right-0 border-top-0 border-bottom-0 c-brd-light py-4">
-                                    <table class="table mb-0 c-line-height-1 c-brd-light">
-                                        <tbody>
-                                            <tr>
-                                                <td class="c-dark c-font-weight-600 b-r">Body Type:</td>
-                                                <td>SUV</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="c-dark c-font-weight-600 b-r">Brand:</td>
-                                                <td>Land Rover</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="c-dark c-font-weight-600 b-r">Model:</td>
-                                                <td>2015</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="c-dark c-font-weight-600 b-r">Fuel Type:</td>
-                                                <td>Diesel</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="c-dark c-font-weight-600 b-r">Transmission:</td>
-                                                <td>Automatic</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="c-dark c-font-weight-600 b-r">Color:</td>
-                                                <td>Silver</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div> 
-                    </div>
-                    <div class="card car-listing-full mb-4">
-                        <div class="row">
-                            <div class="col-12 col-lg-4 h-283">
-                                <div class="position-relative">
-                                    <a href="#">
-                                        <div class="background-image-maker rounded-left h-283"></div>
-                                        <div class="holder-image">
-                                            <img src="dist/images/img5.jpg" alt="" class="img-fluid d-none" />
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-5 align-self-center">
-                                <div class="p-4 p-lg-0">
-                                    <h6 class="mb-2"><a href="listing-details.php">Aston Martin DB5</a></h6>
-                                    <ul class="list-unstyled mb-2 c-line-height-2_5">
-                                        <li><h6 class="c-primary mb-0"><small class="c-light">Price</small> $28,600 </h6></li>
-                                        <li><i class="fa fa-map-marker pr-1"></i> South City, New York</li>
-                                    </ul>
-                                    <ul class="list-inline">
-                                        <li class="list-inline-item mr-3"><a href="#" class="c-light"><i class="flaticon-calendar pr-1"></i> 2015 </a></li>
-                                        <li class="list-inline-item mr-3"><a href="#" class="c-light"><i class="flaticon-clock pr-1"></i> 35,000</a></li>
-                                        <li class="list-inline-item mr-3"><a href="#" class="c-light"><i class="flaticon-fuel pr-1"></i>  Petrol </a></li>
-                                        <li class="list-inline-item"><a href="#" class="c-light"><i class="flaticon-transport-2 pr-1"></i>  Auto </a></li>
-                                    </ul>
-                                    <a href="listing-details.php" class="btn btn-outline-primary text-uppercase btn-lg c-font-weight-700" tabindex="-1">View Details</a>
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-3">
-                                <div class="border border-right-0 border-top-0 border-bottom-0 c-brd-light py-4">
-                                    <table class="table mb-0 c-line-height-1 c-brd-light">
-                                        <tbody>
-                                            <tr>
-                                                <td class="c-dark c-font-weight-600 b-r">Body Type:</td>
-                                                <td>Hatchback</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="c-dark c-font-weight-600 b-r">Brand:</td>
-                                                <td>Aston</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="c-dark c-font-weight-600 b-r">Model:</td>
-                                                <td>2015</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="c-dark c-font-weight-600 b-r">Fuel Type:</td>
-                                                <td>Diesel</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="c-dark c-font-weight-600 b-r">Transmission:</td>
-                                                <td>Automatic</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="c-dark c-font-weight-600 b-r">Color:</td>
-                                                <td>Gray</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div> 
-                    </div>
-                    <div class="card car-listing-full mb-4">
-                        <div class="row">
-                            <div class="col-12 col-lg-4 h-283">
-                                <div class="position-relative">
-                                    <a href="#">
-                                        <div class="background-image-maker rounded-left h-283"></div>
-                                        <div class="holder-image">
-                                            <img src="dist/images/img6.jpg" alt="" class="img-fluid d-none" />
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-5 align-self-center">
-                                <div class="p-4 p-lg-0">
-                                    <h6 class="mb-2"><a href="listing-details.php">Chevrolet camaro SS</a></h6>
-                                    <ul class="list-unstyled mb-2 c-line-height-2_5">
-                                        <li><h6 class="c-primary mb-0"><small class="c-light">Price</small> $35,800 </h6></li>
-                                        <li><i class="fa fa-map-marker pr-1"></i> South City, New York</li>
-                                    </ul>
-                                    <ul class="list-inline">
-                                        <li class="list-inline-item mr-3"><a href="#" class="c-light"><i class="flaticon-calendar pr-1"></i> 2015 </a></li>
-                                        <li class="list-inline-item mr-3"><a href="#" class="c-light"><i class="flaticon-clock pr-1"></i> 35,000</a></li>
-                                        <li class="list-inline-item mr-3"><a href="#" class="c-light"><i class="flaticon-fuel pr-1"></i>  Petrol </a></li>
-                                        <li class="list-inline-item"><a href="#" class="c-light"><i class="flaticon-transport-2 pr-1"></i>  Auto </a></li>
-                                    </ul>
-                                    <a href="listing-details.php" class="btn btn-outline-primary text-uppercase btn-lg c-font-weight-700" tabindex="-1">View Details</a>
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-3">
-                                <div class="border border-right-0 border-top-0 border-bottom-0 c-brd-light py-4">
-                                    <table class="table mb-0 c-line-height-1 c-brd-light">
-                                        <tbody>
-                                            <tr>
-                                                <td class="c-dark c-font-weight-600 b-r">Body Type:</td>
-                                                <td>Convertible</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="c-dark c-font-weight-600 b-r">Brand:</td>
-                                                <td>Chevrolet</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="c-dark c-font-weight-600 b-r">Model:</td>
-                                                <td>2016</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="c-dark c-font-weight-600 b-r">Fuel Type:</td>
-                                                <td>Petrol</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="c-dark c-font-weight-600 b-r">Transmission:</td>
-                                                <td>Automatic</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="c-dark c-font-weight-600 b-r">Color:</td>
-                                                <td>Red</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div> 
-                    </div>
-                    <div class="card car-listing-full mb-4">
-                        <div class="row">
-                            <div class="col-12 col-lg-4 h-283">
-                                <div class="position-relative">
-                                    <a href="#">
-                                        <div class="background-image-maker rounded-left h-283"></div>
-                                        <div class="holder-image">
-                                            <img src="dist/images/img10.jpg" alt="" class="img-fluid d-none" />
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-5 align-self-center">
-                                <div class="p-4 p-lg-0">
-                                    <h6 class="mb-2"><a href="listing-details.php">Aston Martin DB5</a></h6>
-                                    <ul class="list-unstyled mb-2 c-line-height-2_5">
-                                        <li><h6 class="c-primary mb-0"><small class="c-light">Price</small> $28,600 </h6></li>
-                                        <li><i class="fa fa-map-marker pr-1"></i> South City, New York</li>
-                                    </ul>
-                                    <ul class="list-inline">
-                                        <li class="list-inline-item mr-3"><a href="#" class="c-light"><i class="flaticon-calendar pr-1"></i> 2015 </a></li>
-                                        <li class="list-inline-item mr-3"><a href="#" class="c-light"><i class="flaticon-clock pr-1"></i> 35,000</a></li>
-                                        <li class="list-inline-item mr-3"><a href="#" class="c-light"><i class="flaticon-fuel pr-1"></i>  Petrol </a></li>
-                                        <li class="list-inline-item"><a href="#" class="c-light"><i class="flaticon-transport-2 pr-1"></i>  Auto </a></li>
-                                    </ul>
-                                    <a href="listing-details.php" class="btn btn-outline-primary text-uppercase btn-lg c-font-weight-700" tabindex="-1">View Details</a>
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-3">
-                                <div class="border border-right-0 border-top-0 border-bottom-0 c-brd-light py-4">
-                                    <table class="table mb-0 c-line-height-1 c-brd-light">
-                                        <tbody>
-                                            <tr>
-                                                <td class="c-dark c-font-weight-600 b-r">Body Type:</td>
-                                                <td>Couple</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="c-dark c-font-weight-600 b-r">Brand:</td>
-                                                <td>Aston</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="c-dark c-font-weight-600 b-r">Model:</td>
-                                                <td>2015</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="c-dark c-font-weight-600 b-r">Fuel Type:</td>
-                                                <td>Diesel</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="c-dark c-font-weight-600 b-r">Transmission:</td>
-                                                <td>Manual</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="c-dark c-font-weight-600 b-r">Color:</td>
-                                                <td>Blue</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div> 
-                    </div>
-                    <div class="card car-listing-full">
+                    <div class="card car-listing-full mb-4" id="ProductShow">
                         <div class="row">
                             <div class="col-12 col-lg-4 h-283">
                                 <div class="position-relative">
@@ -693,3 +167,85 @@
 </section>
 <!-- End List Without Sidebar -->
 <%- include ../sitelayouts/footer.ejs %>
+<script>
+    function GetParameterValues(param) {
+        var url = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+        for (var i = 0; i < url.length; i++) {
+            var urlparam = url[i].split('=');
+            if (urlparam[0] == param) {
+                return urlparam[1];
+            }
+        }
+    }
+
+    function get_filter_value(param) {
+        var value = $('#' + param).val();
+        if (!value) {
+            value = GetParameterValues(param);
+        }
+        if (!value) {
+            value = '';
+        }
+        return value;
+    }
+    function search_results() {
+        var formData = {
+            make: get_filter_value('make'),
+            model: get_filter_value('model'),
+            radius: get_filter_value('radius')
+        }
+        var url = 'http://127.0.0.1:2222/auto-search-results';
+        $.get(url, formData, function (data) {
+            $('#ProductShow').html('')
+            $.each(data.cars, function (index, value) {
+                console.log(value)
+                var ab = '';
+                $(' <ul class="list-inline">' + value.listings + '</ul>').find('li').each(function (i, elem) {
+                    ab += '<li>' + $.trim($(this).text()) + '</li>';
+                });
+                $('#ProductShow').append('<div class="product-bar"><div class="col-md-4 h-283"><div class="position-relative">\n\
+ <a href="http://sellbuymotors.co.uk/productView/' + value.product_id + '"><div class="background-image-maker rounded-left h-283" style="background-image: url(&quot;' + value.image + ';);"></div>\n\
+<div class="holder-image"><img src="' + value.image + '" alt="" class="img-fluid d-none">\n\
+</div></a></div></div>' +
+                        '<div class="col-md-4 title-products align-self-center">' +
+                        '<div class="p-4 p-lg-0">' +
+                        '<h6 class="mb-2"><a href="http://sellbuymotors.co.uk/productView/' + value.product_id + '">' + value.name + '</a></h6>' +
+                        ' <ul class="list-unstyled mb-2 c-line-height-2_5">' +
+                        ' <li><h6 class="mb-0"><small class="c-light">Price</small> ' + value.price + ' </h6></li>' +
+                        '</ul>' + value.description.substr(0, 250) +
+                        '<a href="http://sellbuymotors.co.uk/productView/' + value.product_id + '" class="btn btn-outline-primary text-uppercase btn-lg c-font-weight-700" tabindex="-1">' +
+                        ' View Details' +
+                        ' </a>' +
+                        '</div>' +
+                        ' </div>' +
+                        '<div class="col-md-4 listind-detail">' +
+                        ' <div class="border border-right-0 border-top-0 border-bottom-0 c-brd-light py-4">' +
+                        ' <ul class="list-inline"><h1>Features</h1>' + ab +
+                        '</ul>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>');
+
+            });
+            $('#foundCar').text(data.count)
+            $.each(data.filters.radius, function (key, value) {
+                $('#radius').append('<option value="' + value.value + '">' + value.text + '</option>')
+            })
+            $.each(data.filters.make, function (key, value) {
+                $('#make').append('<option value="' + value.value + '">' + value.count + '</option>')
+            })
+            $.each(data.filters.model, function (key, value) {
+                $('#model').append('<option value="' + value.value + '">' + value.count + '</option>')
+            })
+        }
+        , 'json')
+    }
+    search_results()
+    $(document).on('change', '.rounded', function () {
+        search_results()
+    })
+    $(document).on('change', '#make', function () {
+        $('#model').html('');
+        search_results()
+    })
+</script>
