@@ -168,6 +168,7 @@
 <!-- End List Without Sidebar -->
 <%- include ../sitelayouts/footer.ejs %>
 <script>
+    var base_url = window.location.origin;
     function GetParameterValues(param) {
         var url = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
         for (var i = 0; i < url.length; i++) {
@@ -194,11 +195,10 @@
             model: get_filter_value('model'),
             radius: get_filter_value('radius')
         }
-        var url = 'http://127.0.0.1:2222/auto-search-results';
+        var url =  base_url + '/auto-search-results';
         $.get(url, formData, function (data) {
             $('#ProductShow').html('')
-            $.each(data.cars, function (index, value) {
-                console.log(value)
+            $.each(data.cars, function (index, value) { 
                 var ab = '';
                 $(' <ul class="list-inline">' + value.listings + '</ul>').find('li').each(function (i, elem) {
                     ab += '<li>' + $.trim($(this).text()) + '</li>';
