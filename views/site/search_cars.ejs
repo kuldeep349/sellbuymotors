@@ -91,7 +91,7 @@
                 <div class="col-12 col-lg-12">
                     <div class="row mb-4">
                         <div class="col-12 col-md-5 col-xl-6 align-self-center">
-                            <p class="mb-0" id="foundCar">8 Vehicles Matching</p>
+                            <p class="mb-0" id="foundCar">Finding</p>
                         </div>
                         <div class="col-12 col-md-5 col-xl-6 align-self-center" id="loading" style="display:none;">
                             <img src="http://mulher.m.u.pic.centerblog.net/0f2883e6.gif" width="100px" height="100px"/>
@@ -260,7 +260,8 @@
                         '</div>');
 
             });
-            $('#foundCar').text(data.count)
+
+            $('#foundCar').text(data.count + ' Vehicles Matching')
             $('#radius').html('')
             $.each(data.filters.radius, function (key, value) {
                 $('#radius').append('<option value="' + value.value + '">' + value.text + '</option>')
@@ -282,7 +283,7 @@
             $('#make').val(formData.make.replace("%20", " "))
             $('#model').val(formData.model.replace("%20", " "))
             $('#aggregatedTrim').val(formData.aggregatedTrim.replace("%20", " "))
-            console.log(formData)
+//            console.log(formData)
             var c_url = '';
             $.each(formData, function (key, value) {
                 if (value == null)
