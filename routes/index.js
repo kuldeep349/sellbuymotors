@@ -150,6 +150,21 @@ app.get('/search-results', async function (req, res, next) {
 //})
 app.get('/auto-search-results', async function (req, res, next) {
     var q = url.parse(req.url, true).query;
+//    return;
+    var makeModel;
+    if (q.make) {
+        if (q.model) {
+            if (q.aggregatedTrim) {
+                makeModel = [{Value: q.make, Models: [{value: q.model}], Trims: [{value: q.aggregatedTrim}]}]
+            } else {
+                makeModel = [{Value: q.make, Models: [{value: q.model}], Trims: []}]
+            }
+        } else {
+            makeModel = [{Value: q.make, Models: [], Trims: []}]
+        }
+    } else {
+        makeModel = []
+    }
     var searchPanelParameters = {
         "Doors": [],
         "Seats": [],
@@ -159,7 +174,7 @@ app.get('/auto-search-results', async function (req, res, next) {
         "SelectedAcceleration": null,
         "SelectedEngineSize": null,
         "BodyStyles": [],
-        "MakeModels": [],
+        "MakeModels": makeModel,
         "FuelTypes": [],
         "Transmissions": [],
         "Colours": [],
@@ -215,10 +230,11 @@ app.get('/auto-search-results', async function (req, res, next) {
     axios.get(path)
             .then((response) => {
                 if (response.status === 200) {
+                    console.log('first response come')
                     const html = response.data;
                     const $ = cheerio.load(html);
-                    var url = 'https://www.motors.co.uk/search/car/updatesearchpanel';
-                    axios.post(url, searchPanelParameters)
+                    var path2 = 'https://www.motors.co.uk/search/car/updatesearchpanel';
+                    axios.post(path2, searchPanelParameters)
                             .then((response2) => {
                                 const html2 = response2.data;
                                 var cars = {}, filters = {}, radius = {}, make = {}, model = {}, model_variant = {}, aggregatedTrim = {}
@@ -243,7 +259,7 @@ app.get('/auto-search-results', async function (req, res, next) {
                                     make[i] = {
                                         value: $(this).data('selected-value'),
                                         text: $(this).data('selected-display-name'),
-                                        count: $(this).find('span').text().replace('(', '').replace(')', '')
+                                        count: $(this).find('span').text().replace('(', '').replace(')', '').replace($(this).data('selected-display-name'), '')
                                     }
                                 });
 //                                $(make).each(function (key, value) {
@@ -254,7 +270,7 @@ app.get('/auto-search-results', async function (req, res, next) {
                                     model[i] = {
                                         value: $(this).data('selected-value'),
                                         text: $(this).data('selected-display-name'),
-                                        count: $(this).find('span').text(),
+                                        count: $(this).find('span').text().replace('(', '').replace(')', '').replace($(this).data('selected-display-name'), ''),
                                     }
                                 });
                                 $('<div>' + html.refinements.fields[3].html + '</div>').find(".value-button").each(function (i, elem) {
@@ -273,9 +289,10 @@ app.get('/auto-search-results', async function (req, res, next) {
                                 data = {
                                     filters: filters,
                                     html1: html.refinements,
-                                    html2: html2.MakeModels,
+                                    html2: html2,
                                     count: parseInt(html.refinements.count.replace(' cars found', '').replace(/,/g, '')) + parseInt(html2.RecordCount),
-                                    cars: cars
+                                    cars: cars,
+                                    searchPanelParameters: searchPanelParameters
                                 }
                                 res.writeHead(200, {'Content-Type': 'application/json'});
                                 res.end(JSON.stringify(data));
@@ -285,73 +302,119 @@ app.get('/auto-search-results', async function (req, res, next) {
             , (error) => console.log(err));
 })
 app.get('/mot-search', async function (req, res, next) {
-    var url = 'https://www.motors.co.uk/search/car/updatesearchpanel';
-    var searchPanelParameters = {
-        "Doors": [],
-        "Seats": [],
-        "SafetyRatings": [],
-        "SelectedTopSpeed": null,
-        "SelectedPower": null,
-        "SelectedAcceleration": null,
-        "SelectedEngineSize": null,
-        "BodyStyles": [],
-        "MakeModels": [],
-        "FuelTypes": [],
-        "Transmissions": [],
-        "Colours": [],
-        "IsPaymentSearch": false,
-        "IsReduced": false,
-        "IsHot": false,
-        "IsRecentlyAdded": false,
-        "IsRecommendedSearch": true,
-        "VoucherEnabled": false,
-        "IsGroupStock": false,
-        "PartExAvailable": false,
-        "IsPriceAndGo": false,
-        "IsPreReg": false,
-        "IsExDemo": false,
-        "ExcludeExFleet": false,
-        "ExcludeExHire": false,
-        "Keywords": [],
-        "SelectedInsuranceGroup": null,
-        "SelectedFuelEfficiency": null,
-        "SelectedCostAnnualTax": null,
-        "SelectedCO2Emission": null,
-        "SelectedTowingBrakedMax": null,
-        "SelectedTowingUnbrakedMax": null,
-        "SelectedAdvertType": "*",
-        "SelectedTankRange": null,
-        "DealerId": 0,
-        "Age": -1,
-        "Mileage": -1,
-        "MinPrice": -1,
-        "MaxPrice": -1,
-        "MinPaymentMonthlyCost": -1,
-        "MaxPaymentMonthlyCost": -1,
-        "PaymentTerm": 60,
-        "PaymentMileage": 10000,
-        "PaymentDeposit": 1000,
-        "SelectedSoldStatus": "both",
-        "SelectedBatteryRangeMiles": null,
-        "SelectedBatteryFastChargeMinutes": null,
-        "BatteryIsLeased": false,
-        "BatteryIsWarrantyWhenNew": false,
-        "ExcludeImports": false,
-        "ExcludeHistoryCatNCatD": false,
-        "ExcludeHistoryCatSCatC": false,
-        "ExcludedVehicles": [],
-        "Type": 1,
-        "PostCode": "N111NP",
-        "Distance": 1000,
-        "PaginationCurrentPage": 1,
-        "SortOrder": 0,
-        "DealerGroupId": 0
+    var q = url.parse(req.url, true).query;
+    var path = 'https://www.motors.co.uk/search/car/results';
+    var makeModel;
+    if (q.make) {
+        if (q.model) {
+            if (q.aggregatedTrim) {
+                makeModel = [{Value: q.make, Models: [{value: q.model}], Trims: [{value: q.aggregatedTrim}]}]
+            } else {
+                makeModel = [{Value: q.make, Models: [{value: q.model}], Trims: []}]
+            }
+        } else {
+            makeModel = [{Value: q.make, Models: [], Trims: []}]
+        }
+    } else {
+        makeModel = []
     }
-    axios.post(url, searchPanelParameters)
+    var params = {
+        "isNewSearch": true,
+        "pagination":
+                {
+                    "TotalPages": 0,
+                    "BasicResultCount": 334186,
+                    "TotalRecords": 334186,
+                    "FirstRecord": 1,
+                    "LastRecord": 15,
+                    "CurrentPage": 1,
+                    "LastPage": 22280,
+                    "PageSize": 15,
+                    "PageLinksPerPage": 5,
+                    "PageLinks": [
+                        {"Name": "1", "Link": "1"},
+                        {"Name": "2", "Link": "2"},
+                        {"Name": "3", "Link": "3"},
+                        {"Name": "4", "Link": "4"},
+                        {"Name": "5", "Link": "5"}],
+                    "FirstPageLink":
+                            {
+                                "Name": "1", "Link": "1"},
+                    "Level": null,
+                    "Variants": 0,
+                    "CurrentPageLvl1": 1,
+                    "CurrentPageLvl2": 1,
+                    "CurrentPageLvl3": 1,
+                    "CurrentPageLvl4": 1
+                },
+        "searchPanelParameters":
+                {
+                    "Doors": [],
+                    "Seats": [],
+                    "SafetyRatings": [],
+                    "SelectedTopSpeed": null,
+                    "SelectedPower": null,
+                    "SelectedAcceleration": null,
+                    "SelectedEngineSize": null,
+                    "BodyStyles": [],
+                    "MakeModels": makeModel,
+                    "FuelTypes": [],
+                    "Transmissions": [],
+                    "Colours": [],
+                    "IsPaymentSearch": false,
+                    "IsReduced": false,
+                    "IsHot": false,
+                    "IsRecentlyAdded": false,
+                    "IsRecommendedSearch": true,
+                    "VoucherEnabled": false,
+                    "IsGroupStock": false,
+                    "PartExAvailable": false,
+                    "IsPriceAndGo": false,
+                    "IsPreReg": false,
+                    "IsExDemo": false,
+                    "ExcludeExFleet": false,
+                    "ExcludeExHire": false,
+                    "Keywords": [],
+                    "SelectedInsuranceGroup": null,
+                    "SelectedFuelEfficiency": null,
+                    "SelectedCostAnnualTax": null,
+                    "SelectedCO2Emission": null,
+                    "SelectedTowingBrakedMax": null,
+                    "SelectedTowingUnbrakedMax": null,
+                    "SelectedAdvertType": "*",
+                    "SelectedTankRange": null,
+                    "DealerId": 0,
+                    "Age": -1,
+                    "Mileage": -1,
+                    "MinPrice": -1,
+                    "MaxPrice": -1,
+                    "MinPaymentMonthlyCost": -1,
+                    "MaxPaymentMonthlyCost": -1,
+                    "PaymentTerm": 60,
+                    "PaymentMileage": 10000,
+                    "PaymentDeposit": 1000,
+                    "SelectedSoldStatus": "both",
+                    "SelectedBatteryRangeMiles": null,
+                    "SelectedBatteryFastChargeMinutes": null,
+                    "BatteryIsLeased": false,
+                    "BatteryIsWarrantyWhenNew": false,
+                    "ExcludeImports": false,
+                    "ExcludeHistoryCatNCatD": false,
+                    "ExcludeHistoryCatSCatC": false,
+                    "ExcludedVehicles": [],
+                    "Type": 1,
+                    "PostCode": "N111NP",
+                    "Distance": 1000,
+                    "PaginationCurrentPage": 1,
+                    "SortOrder": 0,
+                    "DealerGroupId": 0
+                }
+    }
+    axios.post(path, params)
             .then((response) => {
-                console.log(response.data)
+//                console.log(response)
                 res.setHeader('Content-Type', 'application/json');
-                res.send(JSON.stringify(response.data));
+                res.send(JSON.stringify(response.data.Results));
             }, (error) => console.log(error));
 })
 app.get('/product_search', async function (req, res, next) {

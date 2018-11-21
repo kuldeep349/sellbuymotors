@@ -258,25 +258,46 @@
                         '</div>' +
                         '</div>' +
                         '</div>');
-
             });
-
             $('#foundCar').text(data.count + ' Vehicles Matching')
             $('#radius').html('')
             $.each(data.filters.radius, function (key, value) {
                 $('#radius').append('<option value="' + value.value + '">' + value.text + '</option>')
             })
             $('#make').html('')
+            var make_count;
             $.each(data.filters.make, function (key, value) {
-                $('#make').append('<option value="' + value.value + '">' + value.count + '</option>')
+                data.html2.MakeModels.filter(function (make) {
+                    if (make.Name == value.text) {
+                        make_count = parseInt(make.Counter) + parseInt(value.count)
+                    }
+                });
+                if (typeof model_count != 'undefined')
+                    make_count = value.count
+                $('#make').append('<option value="' + value.text + '">' + value.value + '(' + make_count + ')</option>')
             })
             $('#model').html('')
+            var html2models;
+            data.html2.MakeModels.filter(function (model) {
+                if (model.Id == 'Makes_' + formData.make) {
+                    html2models = model.Models
+                }
+            });
+            var model_count;
             $.each(data.filters.model, function (key, value) {
-                $('#model').append('<option value="' + value.value + '">' + value.count + '</option>')
+                html2models.filter(function (model) {
+                    if (model.Name == value.text) {
+                        console.log(model.Name)
+                        model_count = parseInt(model.Counter) + parseInt(value.count)
+                    }
+                });
+                if (typeof model_count == 'undefined')
+                    model_count = value.count
+                $('#model').append('<option value="' + value.text + '">' + value.value + '( ' + model_count + ')</option>')
             })
             $('#aggregatedTrim').html('')
             $.each(data.filters.aggregatedTrim, function (key, value) {
-                $('#aggregatedTrim').append('<option value="' + value.value + '">' + value.count + '</option>')
+                $('#aggregatedTrim').append('<option value="' + value.text + '">' + value.count + '</option>')
             })
             $('#loading').css('display', 'none')
             $('#radius').val(formData.radius)
@@ -293,9 +314,75 @@
             });
             var new_url = "/search-cars?type=" + GetParameterValues('type') + c_url;
             window.history.pushState("data", "Title", new_url);
+            more_products()
         }, 'json')
     }
+    function more_products() {
+        var formData = {
+            make: get_filter_value('make'),
+            model: get_filter_value('model'),
+            radius: get_filter_value('radius'),
+            aggregatedTrim: get_filter_value('aggregatedTrim'),
+        }
+        var url = base_url + '/mot-search';
+        $.get(url, formData, function (data) {
+            var html = '';
+            $.each(data, function (key, value) {
+                if (value.ObjectType == 'UsedVehicleResult') {
+                    console.log(value)
+                    html += '<div class="product-bar">\n\
+                                <div class="col-md-4 h-283">\n\
+                                    <div class="position-relative">\n\
+                                        <a href="productView/' + value.VehicleId + '">\n\
+                                            <div class="background-image-maker rounded-left h-283" style="background-image: url(&quot;' + value.MainImage.Normal + ';);">\n\
+                                            </div>\n\
+                                            <div class="holder-image">\n\
+                                                <img src="' + value.MainImage.Normal + '" alt="" class="img-fluid d-none">\n\
+                                            </div>\n\
+                                        </a>\n\
+                                    </div>\n\
+                                </div>\n\
+                                <div class="col-md-4 title-products align-self-center">\n\
+                                    <div class="p-4 p-lg-0">\n\
+                                        <h6 class="mb-2">\n\
+                                            <a href="productView/' + value.VehicleId + '">' + value.Title + '\n\
+                                            </a>\n\
+                                        </h6>\n\
+                                         <ul class="list-unstyled mb-2 c-line-height-2_5"> \n\
+                                            <li><h6 class="mb-0"><small class="c-light">Price</small> ' + value.GBPPrice + '</h6></li>\n\
+                                        </ul>\n\
+                                        ' + value.Variant + ' …\n\
+                                        <a href="productView/' + value.VehicleId + '" class="btn btn-outline-primary text-uppercase btn-lg c-font-weight-700" tabindex="-1"> \n\
+                                            View Details \n\
+                                        </a>\n\
+                                    </div>\n\
+                                </div>\n\
+                                <div class="col-md-4 listind-detail"> \n\
+                                    <div class="border border-right-0 border-top-0 border-bottom-0 c-brd-light py-4"> \n\
+                                        <ul class="list-inline">\n\
+                                            <h1>Features</h1>\n\
+                                                <li>' + value.RegistrationYear + ' (' + value.RegistrationNumberYear + ' reg)</li>\n\
+                                                <li>' + value.BodyStyle + '</li>\n\
+                                                <li>' + value.MileageInt + ' miles</li>\n\
+                                                <li>' + value.EngineSizeLitres + '</li>\n\
+                                                <li>' + value.Transmission + '</li>\n\
+                                                <li>' + value.FuelType + '</li>\n\
+                                        </ul>\n\
+                                    </div>\n\
+                                </div>\n\
+                            </div>'
+                }
+            })
+            $('#ProductShow').append(html)
+
+        });
+    }
     search_results()
+//    more_products()
+
+    function get_make_count(name) {
+
+    }
     $(document).on('change', '.rounded', function () {
         search_results()
     })
