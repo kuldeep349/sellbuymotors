@@ -267,30 +267,36 @@
             $('#make').html('')
             var make_count;
             $.each(data.filters.make, function (key, value) {
-                data.html2.MakeModels.filter(function (make) {
-                    if (make.Name == value.text) {
-                        make_count = parseInt(make.Counter) + parseInt(value.count)
-                    }
-                });
+                if (data.html2.MakeModels) {
+                    data.html2.MakeModels.filter(function (make) {
+                        if (make.Name == value.text) {
+                            make_count = parseInt(make.Counter) + parseInt(value.count)
+                        }
+                    });
+                }
                 if (typeof model_count != 'undefined')
                     make_count = value.count
                 $('#make').append('<option value="' + value.text + '">' + value.value + '(' + make_count + ')</option>')
             })
             $('#model').html('')
             var html2models;
-            data.html2.MakeModels.filter(function (model) {
-                if (model.Id == 'Makes_' + formData.make) {
-                    html2models = model.Models
-                }
-            });
-            var model_count;
-            $.each(data.filters.model, function (key, value) {
-                html2models.filter(function (model) {
-                    if (model.Name == value.text) {
-                        console.log(model.Name)
-                        model_count = parseInt(model.Counter) + parseInt(value.count)
+            if (data.html2.MakeModels) {
+                data.html2.MakeModels.filter(function (model) {
+                    if (model.Id == 'Makes_' + formData.make) {
+                        html2models = model.Models
                     }
                 });
+            }
+            var model_count;
+            $.each(data.filters.model, function (key, value) {
+                if (html2models) {
+                    html2models.filter(function (model) {
+                        if (model.Name == value.text) {
+                            console.log(model.Name)
+                            model_count = parseInt(model.Counter) + parseInt(value.count)
+                        }
+                    });
+                }
                 if (typeof model_count == 'undefined')
                     model_count = value.count
                 $('#model').append('<option value="' + value.text + '">' + value.value + '( ' + model_count + ')</option>')
@@ -314,22 +320,22 @@
             });
             var new_url = "/search-cars?type=" + GetParameterValues('type') + c_url;
             window.history.pushState("data", "Title", new_url);
-            more_products()
+            more_products(formData)
         }, 'json')
     }
-    function more_products() {
-        var formData = {
-            make: get_filter_value('make'),
-            model: get_filter_value('model'),
-            radius: get_filter_value('radius'),
-            aggregatedTrim: get_filter_value('aggregatedTrim'),
-        }
+    function more_products(formData) {
+//        var formData = {
+//            make: get_filter_value('make'),
+//            model: get_filter_value('model'),
+//            radius: get_filter_value('radius'),
+//            aggregatedTrim: get_filter_value('aggregatedTrim'),
+//        }
         var url = base_url + '/mot-search';
         $.get(url, formData, function (data) {
             var html = '';
             $.each(data, function (key, value) {
                 if (value.ObjectType == 'UsedVehicleResult') {
-                    console.log(value)
+//                    console.log(value)
                     html += '<div class="product-bar">\n\
                                 <div class="col-md-4 h-283">\n\
                                     <div class="position-relative">\n\

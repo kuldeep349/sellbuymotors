@@ -417,6 +417,91 @@ app.get('/mot-search', async function (req, res, next) {
                 res.send(JSON.stringify(response.data.Results));
             }, (error) => console.log(error));
 })
+app.get('/motors-filter-search', async function (req, res, next) {
+    var q = url.parse(req.url, true).query;
+    var makeModel;
+    if (q.make) {
+        if (q.model) {
+            if (q.aggregatedTrim) {
+                makeModel = [{Value: q.make, Models: [{value: q.model}], Trims: [{value: q.aggregatedTrim}]}]
+            } else {
+                makeModel = [{Value: q.make, Models: [{value: q.model}], Trims: []}]
+            }
+        } else {
+            makeModel = [{Value: q.make, Models: [], Trims: []}]
+        }
+    } else {
+        makeModel = []
+    }
+    var searchPanelParameters = {
+        "Doors": [],
+        "Seats": [],
+        "SafetyRatings": [],
+        "SelectedTopSpeed": null,
+        "SelectedPower": null,
+        "SelectedAcceleration": null,
+        "SelectedEngineSize": null,
+        "BodyStyles": [],
+        "MakeModels": makeModel,
+        "FuelTypes": [],
+        "Transmissions": [],
+        "Colours": [],
+        "IsPaymentSearch": false,
+        "IsReduced": false,
+        "IsHot": false,
+        "IsRecentlyAdded": false,
+        "IsRecommendedSearch": true,
+        "VoucherEnabled": false,
+        "IsGroupStock": false,
+        "PartExAvailable": false,
+        "IsPriceAndGo": false,
+        "IsPreReg": false,
+        "IsExDemo": false,
+        "ExcludeExFleet": false,
+        "ExcludeExHire": false,
+        "Keywords": [],
+        "SelectedInsuranceGroup": null,
+        "SelectedFuelEfficiency": null,
+        "SelectedCostAnnualTax": null,
+        "SelectedCO2Emission": null,
+        "SelectedTowingBrakedMax": null,
+        "SelectedTowingUnbrakedMax": null,
+        "SelectedAdvertType": "*",
+        "SelectedTankRange": null,
+        "DealerId": 0,
+        "Age": -1,
+        "Mileage": -1,
+        "MinPrice": -1,
+        "MaxPrice": -1,
+        "MinPaymentMonthlyCost": -1,
+        "MaxPaymentMonthlyCost": -1,
+        "PaymentTerm": 60,
+        "PaymentMileage": 10000,
+        "PaymentDeposit": 1000,
+        "SelectedSoldStatus": "both",
+        "SelectedBatteryRangeMiles": null,
+        "SelectedBatteryFastChargeMinutes": null,
+        "BatteryIsLeased": false,
+        "BatteryIsWarrantyWhenNew": false,
+        "ExcludeImports": false,
+        "ExcludeHistoryCatNCatD": false,
+        "ExcludeHistoryCatSCatC": false,
+        "ExcludedVehicles": [],
+        "Type": 1,
+        "PostCode": "N111NP",
+        "Distance": 1000,
+        "PaginationCurrentPage": 1,
+        "SortOrder": 0,
+        "DealerGroupId": 0
+    }
+    var path2 = 'https://www.motors.co.uk/search/car/updatesearchpanel';
+    axios.post(path2, searchPanelParameters)
+            .then((response) => {
+//                console.log(response)
+                res.setHeader('Content-Type', 'application/json');
+                res.send(JSON.stringify(response.data.MakeModels));
+            }, (error) => console.log(error));
+})
 app.get('/product_search', async function (req, res, next) {
     var q = url.parse(req.url, true).query;
     var path = 'https://www.autotrader.co.uk/classified/advert/' + q.id;
