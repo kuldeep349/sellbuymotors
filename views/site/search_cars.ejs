@@ -49,10 +49,16 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12 col-sm-6 col-md-4 col-xl-12">
+                                    <label class="c-dark">Postal Code</label>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="postal_code"/>
+                                    </div>
+                                </div> 
+                                <div class="col-12 col-sm-6 col-md-4 col-xl-12">
                                     <label class="c-dark">Radius</label>
                                     <div class="form-group">
                                         <select class="form-control rounded" id="radius">
-
+                                            <option value="1500">Distance(National)</option>
                                         </select>
                                     </div>
                                 </div>  
@@ -81,9 +87,9 @@
                                 <div class="col-12 col-sm-6 col-md-4 col-xl-12">
                                     <label class="c-dark">Price</label>
                                     <div class="form-group">
-                                        <select class="form-control rounded" id="Price">
-                                            <option>Total Price</option>
-                                            <option>Monthly Price</option>
+                                        <select class="form-control rounded" id="sort">
+                                            <option value="sponsored">Total Price</option>
+                                            <option value="monthly-price-asc">Monthly Price</option>
                                         </select>
                                     </div>
                                 </div> 
@@ -389,10 +395,15 @@
     }
     function search_results() {
         var formData = {
+            postal_code: get_filter_value('postal_code'),
             make: get_filter_value('make'),
             model: get_filter_value('model'),
             radius: get_filter_value('radius'),
             aggregatedTrim: get_filter_value('aggregatedTrim'),
+            onesearchad: get_filter_value('onesearchad'),
+            sort: get_filter_value('sort'),
+            price_from: get_filter_value('price_from'),
+            price_to: get_filter_value('price_to'),
         }
         var url = base_url + '/auto-search-results';
         $('#loading').css('display', 'block')
@@ -427,7 +438,7 @@
                         '</div>');
             });
             $('#foundCar').text(data.html1.count)
-            $('#radius').html('<option value="">Any</option>')
+            $('#radius').html('<option value="1500">Distance(National)</option>')
             $('<div>' + data.html1.fields[0].html + '</div>').find('div').each(function (key, value) {
                 $('#radius').append('<option value="' + $(this).data('selected-value') + '">' + $(this).data('selected-display-name') + '</option>')
             })
@@ -444,11 +455,11 @@
                 $('#aggregatedTrim').append('<option value="' + $(this).data('selected-value') + '">' + $(this).find('.term').text() + $(this).find('.count').text() + '</option>')
             })
             $('#price_from').html('')
-            $('<div>' + data.html1.fields[4].maxField.html + '</div>').find('option').each(function (key, value) {
+            $('<div>' + data.html1.fields[4].minField.html + '</div>').find('option').each(function (key, value) {
                 $('#price_from').append('<option value="' + $(this).val() + '">' + $(this).text() + '</option>')
             })
             $('#price_to').html('')
-            $('<div>' + data.html1.fields[4].minField.html + '</div>').find('option').each(function (key, value) {
+            $('<div>' + data.html1.fields[4].maxField.html + '</div>').find('option').each(function (key, value) {
                 $('#price_to').append('<option value="' + $(this).val() + '">' + $(this).text() + '</option>')
             })
             $('#year_from').html('')
@@ -537,6 +548,9 @@
             $('#make').val(formData.make.replace("%20", " "))
             $('#model').val(formData.model.replace("%20", " "))
             $('#aggregatedTrim').val(formData.aggregatedTrim.replace("%20", " "))
+            $('#sort').val(formData.sort)
+            $('#price_from').val(formData.price_from)
+            $('#price_to').val(formData.price_to)
 //            console.log(formData)
             var c_url = '';
             $.each(formData, function (key, value) {
@@ -545,9 +559,9 @@
                 else
                     c_url += '&' + key + '=' + value;
             });
-            var new_url = "/search-cars?type=" + GetParameterValues('type') + c_url;
+            var new_url = "/search-cars?onesearchad=" + GetParameterValues('onesearchad') + c_url;
             window.history.pushState("data", "Title", new_url);
-            more_products(formData)
+//            more_products(formData)
         }, 'json')
     }
     function more_products(formData) {

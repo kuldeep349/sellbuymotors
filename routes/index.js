@@ -81,7 +81,6 @@ app.get('/search-results', async function (req, res, next) {
                     res.end(JSON.stringify(obj));
                 }
             }, (error) => console.log(err));
-
 })
 
 //app.get('/auto-search-results', async function (req, res, next) {
@@ -226,7 +225,15 @@ app.get('/auto-search-results', async function (req, res, next) {
         "SortOrder": 0,
         "DealerGroupId": 0
     }
-    var path = 'https://www.autotrader.co.uk/results-car-search?radius=' + q.radius + '&make=' + q.make + '&model=' + q.model + '&aggregatedTrim=' + q.aggregatedTrim;
+    var onesearchad;
+    if (q.onesearchad == 'New') {
+        onesearchad = 'New';
+    } else if (q.onesearchad == 'Used') {
+        onesearchad = 'Used&onesearchad=Nearly%20New';
+    } else {
+        onesearchad = 'Used&onesearchad=Nearly%20New&onesearchad=New';
+    }
+    var path = 'https://www.autotrader.co.uk/results-car-search?sort=' + q.sort + '&radius=' + q.radius + '&make=' + q.make + '&model=' + q.model + '&aggregatedTrim=' + q.aggregatedTrim + '&onesearchad=' + onesearchad + '&price-from=' + q.price_from + '&price-to=' + q.price_to;
     axios.get(path)
             .then((response) => {
                 if (response.status === 200) {
@@ -238,7 +245,6 @@ app.get('/auto-search-results', async function (req, res, next) {
                     axios.post(path2, searchPanelParameters)
                             .then((response2) => {
                                 html2 = response2.data;
-
                             }, (error) => console.log(error));
                     var cars = {}, filters = {}, radius = {}, make = {}, model = {}, model_variant = {}, aggregatedTrim = {}
                     $(html.html).find('li.search-page__result').each(function (i, elem) {
@@ -295,7 +301,8 @@ app.get('/auto-search-results', async function (req, res, next) {
                         html2: html2,
 //                        count: parseInt(html.refinements.count.replace(' cars found', '').replace(/,/g, '')) + parseInt(html2.RecordCount),
                         cars: cars,
-                        searchPanelParameters: searchPanelParameters
+                        searchPanelParameters: searchPanelParameters,
+                        path: path
                     }
                     res.writeHead(200, {'Content-Type': 'application/json'});
                     res.end(JSON.stringify(data));
