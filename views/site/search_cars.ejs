@@ -3,6 +3,10 @@
     .col-md-4{
         float: left;
     }
+    #loading{
+        position: fixed;
+        z-index: 99;
+    }
 </style>
 <section>
     <div class="background-image-maker gradient gradient-lr"></div>
@@ -74,6 +78,169 @@
                                         </select>
                                     </div>
                                 </div> 
+                                <div class="col-12 col-sm-6 col-md-4 col-xl-12">
+                                    <label class="c-dark">Price</label>
+                                    <div class="form-group">
+                                        <select class="form-control rounded" id="Price">
+                                            <option>Total Price</option>
+                                            <option>Monthly Price</option>
+                                        </select>
+                                    </div>
+                                </div> 
+                                <div class="col-12 col-sm-6 col-md-4 col-xl-12">
+                                    <label class="c-dark">Price From</label>
+                                    <div class="form-group">
+                                        <select class="form-control rounded" id="price_from">
+                                        </select>
+                                    </div>
+                                </div> 
+                                <div class="col-12 col-sm-6 col-md-4 col-xl-12">
+                                    <label class="c-dark">Price To</label>
+                                    <div class="form-group">
+                                        <select class="form-control rounded" id="price_to">
+                                        </select>
+                                    </div>
+                                </div> 
+                                <div class="col-12 col-sm-6 col-md-4 col-xl-12">
+                                    <label class="c-dark">Year From</label>
+                                    <div class="form-group">
+                                        <select class="form-control rounded" id="year_from">
+                                        </select>
+                                    </div>
+                                </div> 
+                                <div class="col-12 col-sm-6 col-md-4 col-xl-12">
+                                    <label class="c-dark">Year To</label>
+                                    <div class="form-group">
+                                        <select class="form-control rounded" id="year_to">
+                                        </select>
+                                    </div>
+                                </div> 
+                                <div class="col-12 col-sm-6 col-md-4 col-xl-12">
+                                    <label class="c-dark">Mileage From</label>
+                                    <div class="form-group">
+                                        <select class="form-control rounded" id="mileage_from">
+                                        </select>
+                                    </div>
+                                </div> 
+                                <div class="col-12 col-sm-6 col-md-4 col-xl-12">
+                                    <label class="c-dark">Mileage To</label>
+                                    <div class="form-group">
+                                        <select class="form-control rounded" id="mileage_to">
+                                        </select>
+                                    </div>
+                                </div> 
+                                <div class="col-12 col-sm-6 col-md-4 col-xl-12">
+                                    <label class="c-dark">Body Type</label>
+                                    <div class="form-group">
+                                        <select class="form-control rounded" id="body_type">
+                                        </select>
+                                    </div>
+                                </div> 
+                                <div class="col-12 col-sm-6 col-md-4 col-xl-12">
+                                    <label class="c-dark">Fuel Type</label>
+                                    <div class="form-group">
+                                        <select class="form-control rounded" id="fuel_type">
+                                        </select>
+                                    </div>
+                                </div> 
+                                <div class="col-12 col-sm-6 col-md-4 col-xl-12">
+                                    <label class="c-dark">Engine Size From</label>
+                                    <div class="form-group">
+                                        <select class="form-control rounded" id="engine_size_from">
+                                        </select>
+                                    </div>
+                                </div> 
+                                <div class="col-12 col-sm-6 col-md-4 col-xl-12">
+                                    <label class="c-dark">Engine Size To</label>
+                                    <div class="form-group">
+                                        <select class="form-control rounded" id="engine_size_to">
+                                        </select>
+                                    </div>
+                                </div> 
+                                <div class="col-12 col-sm-6 col-md-4 col-xl-12">
+                                    <label class="c-dark">Fuel Consumption</label>
+                                    <div class="form-group">
+                                        <select class="form-control rounded" id="fuel_consumption">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-4 col-xl-12">
+                                    <label class="c-dark">Acceleration</label>
+                                    <div class="form-group">
+                                        <select class="form-control rounded" id="accelearation">
+                                        </select>
+                                    </div>
+                                </div> 
+                                <div class="col-12 col-sm-6 col-md-4 col-xl-12">
+                                    <label class="c-dark">Gearbox</label>
+                                    <div class="form-group">
+                                        <select class="form-control rounded" id="gearbox">
+                                        </select>
+                                    </div>
+                                </div> 
+                                <div class="col-12 col-sm-6 col-md-4 col-xl-12">
+                                    <label class="c-dark">Drivetrain</label>
+                                    <div class="form-group">
+                                        <select class="form-control rounded" id="drivetrain">
+                                        </select>
+                                    </div>
+                                </div> 
+                                <div class="col-12 col-sm-6 col-md-4 col-xl-12">
+                                    <label class="c-dark">Co 2 Emission</label>
+                                    <div class="form-group">
+                                        <select class="form-control rounded" id="co2emission">
+                                        </select>
+                                    </div>
+                                </div> 
+                                <div class="col-12 col-sm-6 col-md-4 col-xl-12">
+                                    <label class="c-dark">Doors</label>
+                                    <div class="form-group">
+                                        <select class="form-control rounded" id="doors">
+                                        </select>
+                                    </div>
+                                </div> 
+                                <div class="col-12 col-sm-6 col-md-4 col-xl-12">
+                                    <label class="c-dark">Min Seats</label>
+                                    <div class="form-group">
+                                        <select class="form-control rounded" id="min_seats">
+                                        </select>
+                                    </div>
+                                </div> 
+                                <div class="col-12 col-sm-6 col-md-4 col-xl-12">
+                                    <label class="c-dark">Max Seats</label>
+                                    <div class="form-group">
+                                        <select class="form-control rounded" id="max_seats">
+                                        </select>
+                                    </div>
+                                </div> 
+                                <div class="col-12 col-sm-6 col-md-4 col-xl-12">
+                                    <label class="c-dark">InsuranceGroup</label>
+                                    <div class="form-group">
+                                        <select class="form-control rounded" id="insurancegroup">
+                                        </select>
+                                    </div>
+                                </div> 
+                                <div class="col-12 col-sm-6 col-md-4 col-xl-12">
+                                    <label class="c-dark">Annual Tax</label>
+                                    <div class="form-group">
+                                        <select class="form-control rounded" id="annual_tax">
+                                        </select>
+                                    </div>
+                                </div> 
+                                <div class="col-12 col-sm-6 col-md-4 col-xl-12">
+                                    <label class="c-dark">Colour</label>
+                                    <div class="form-group">
+                                        <select class="form-control rounded" id="colour">
+                                        </select>
+                                    </div>
+                                </div> 
+                                <div class="col-12 col-sm-6 col-md-4 col-xl-12">
+                                    <label class="c-dark">Private & Trade</label>
+                                    <div class="form-group">
+                                        <select class="form-control rounded" id="private_trade">
+                                        </select>
+                                    </div>
+                                </div> 
                                 <div class="col-12 col-md-4 col-xl-12">
                                     <label class="mb-4"></label>
                                     <div class="form-group mb-0">
@@ -94,7 +261,7 @@
                             <p class="mb-0" id="foundCar">Finding</p>
                         </div>
                         <div class="col-12 col-md-5 col-xl-6 align-self-center" id="loading" style="display:none;">
-                            <img src="http://mulher.m.u.pic.centerblog.net/0f2883e6.gif" width="100px" height="100px"/>
+                            <img src="dist/images/preloader.gif" style="height:100% width:100%"/>
                         </div>
                     </div>
                     <div class="card car-listing-full mb-4" id="ProductShow">
@@ -259,51 +426,111 @@
                         '</div>' +
                         '</div>');
             });
-            $('#foundCar').text(data.count + ' Vehicles Matching')
-            $('#radius').html('')
-            $.each(data.filters.radius, function (key, value) {
-                $('#radius').append('<option value="' + value.value + '">' + value.text + '</option>')
+            $('#foundCar').text(data.html1.count)
+            $('#radius').html('<option value="">Any</option>')
+            $('<div>' + data.html1.fields[0].html + '</div>').find('div').each(function (key, value) {
+                $('#radius').append('<option value="' + $(this).data('selected-value') + '">' + $(this).data('selected-display-name') + '</option>')
             })
-            $('#make').html('')
-            var make_count;
-            $.each(data.filters.make, function (key, value) {
-                if (data.html2.MakeModels) {
-                    data.html2.MakeModels.filter(function (make) {
-                        if (make.Name == value.text) {
-                            make_count = parseInt(make.Counter) + parseInt(value.count)
-                        }
-                    });
-                }
-                if (typeof model_count != 'undefined')
-                    make_count = value.count
-                $('#make').append('<option value="' + value.text + '">' + value.value + '(' + make_count + ')</option>')
+            $('#make').html('<option value="">Any</option>')
+            $('<div>' + data.html1.fields[1].html + '</div>').find('div').each(function (key, value) {
+                $('#make').append('<option value="' + $(this).data('selected-value') + '">' + $(this).find('.term').text() + $(this).find('.count').text() + '</option>')
             })
-            $('#model').html('')
-            var html2models;
-            if (data.html2.MakeModels) {
-                data.html2.MakeModels.filter(function (model) {
-                    if (model.Id == 'Makes_' + formData.make) {
-                        html2models = model.Models
-                    }
-                });
-            }
-            var model_count;
-            $.each(data.filters.model, function (key, value) {
-                if (html2models) {
-                    html2models.filter(function (model) {
-                        if (model.Name == value.text) {
-                            console.log(model.Name)
-                            model_count = parseInt(model.Counter) + parseInt(value.count)
-                        }
-                    });
-                }
-                if (typeof model_count == 'undefined')
-                    model_count = value.count
-                $('#model').append('<option value="' + value.text + '">' + value.value + '( ' + model_count + ')</option>')
+            $('#model').html('<option value="">Any</option>')
+            $('<div>' + data.html1.fields[2].html + '</div>').find('div').each(function (key, value) {
+                $('#model').append('<option value="' + $(this).data('selected-value') + '">' + $(this).find('.term').text() + $(this).find('.count').text() + '</option>')
             })
-            $('#aggregatedTrim').html('')
-            $.each(data.filters.aggregatedTrim, function (key, value) {
-                $('#aggregatedTrim').append('<option value="' + value.text + '">' + value.count + '</option>')
+            $('#aggregatedTrim').html('<option value="">Any</option>')
+            $('<div>' + data.html1.fields[3].html + '</div>').find('div').each(function (key, value) {
+                $('#aggregatedTrim').append('<option value="' + $(this).data('selected-value') + '">' + $(this).find('.term').text() + $(this).find('.count').text() + '</option>')
+            })
+            $('#price_from').html('')
+            $('<div>' + data.html1.fields[4].maxField.html + '</div>').find('option').each(function (key, value) {
+                $('#price_from').append('<option value="' + $(this).val() + '">' + $(this).text() + '</option>')
+            })
+            $('#price_to').html('')
+            $('<div>' + data.html1.fields[4].minField.html + '</div>').find('option').each(function (key, value) {
+                $('#price_to').append('<option value="' + $(this).val() + '">' + $(this).text() + '</option>')
+            })
+            $('#year_from').html('')
+            $('<div>' + data.html1.fields[5].maxField.html + '</div>').find('option').each(function (key, value) {
+                $('#year_from').append('<option value="' + $(this).val() + '">' + $(this).text() + '</option>')
+            })
+            $('#year_to').html('')
+            $('<div>' + data.html1.fields[5].minField.html + '</div>').find('option').each(function (key, value) {
+                $('#year_to').append('<option value="' + $(this).val() + '">' + $(this).text() + '</option>')
+            })
+            $('#mileage_from').html('')
+            $('<div>' + data.html1.fields[6].maxField.html + '</div>').find('option').each(function (key, value) {
+                $('#mileage_from').append('<option value="' + $(this).val() + '">' + $(this).text() + '</option>')
+            })
+            $('#mileage_to').html('')
+            $('<div>' + data.html1.fields[6].minField.html + '</div>').find('option').each(function (key, value) {
+                $('#mileage_to').append('<option value="' + $(this).val() + '">' + $(this).text() + '</option>')
+            })
+            $('#body_type').html('<option value="">Any</option>')
+            $('<div>' + data.html1.fields[7].html + '</div>').find('div').each(function (key, value) {
+                $('#body_type').append('<option value="' + $(this).find('label').data('selected-value') + '">' + $(this).find('label').data('selected-display-name') + '</option>')
+            })
+            $('#fuel_type').html('<option value="">Any</option>')
+            $('<div>' + data.html1.fields[8].html + '</div>').find('div').each(function (key, value) {
+                $('#fuel_type').append('<option value="' + $(this).find('label').data('selected-value') + '">' + $(this).find('label').data('selected-display-name') + '</option>')
+            })
+            $('#engine_size_from').html('')
+            $('<div>' + data.html1.fields[9].maxField.html + '</div>').find('option').each(function (key, value) {
+                $('#engine_size_from').append('<option value="' + $(this).val() + '">' + $(this).text() + '</option>')
+            })
+            $('#engine_size_to').html('')
+            $('<div>' + data.html1.fields[9].minField.html + '</div>').find('option').each(function (key, value) {
+                $('#engine_size_to').append('<option value="' + $(this).val() + '">' + $(this).text() + '</option>')
+            })
+//            console.log(data.html1.fields[10].html)
+            $('#fuel_consumption').html('<option value="">Any</option>')
+            $('<div>' + data.html1.fields[10].html + '</div>').find('div').each(function (key, value) {
+                $('#fuel_consumption').append('<option value="' + $(this).data('selected-value') + '">' + $(this).find('span').text() + '</option>')
+            })
+            $('#accelearation').html('<option value="">Any</option>')
+            $('<div>' + data.html1.fields[11].html + '</div>').find('div').each(function (key, value) {
+                $('#accelearation').append('<option value="' + $(this).data('selected-value') + '">' + $(this).find('span').text() + '</option>')
+            })
+            $('#gearbox').html('<option value="">Any</option>')
+            $('<div>' + data.html1.fields[12].html + '</div>').find('div').each(function (key, value) {
+                $('#gearbox').append('<option value="' + $(this).data('selected-value') + '">' + $(this).find('span').text() + '</option>')
+            })
+            $('#drivetrain').html('<option value="">Any</option>')
+            $('<div>' + data.html1.fields[13].html + '</div>').find('div').each(function (key, value) {
+                $('#drivetrain').append('<option value="' + $(this).data('selected-value') + '">' + $(this).find('span').text() + '</option>')
+            })
+            $('#co2emission').html('<option value="">Any</option>')
+            $('<div>' + data.html1.fields[14].html + '</div>').find('div').each(function (key, value) {
+                $('#co2emission').append('<option value="' + $(this).data('selected-value') + '">' + $(this).find('span').text() + '</option>')
+            })
+            $('#doors').html('<option value="">Any</option>')
+            $('<div>' + data.html1.fields[15].html + '</div>').find('div').each(function (key, value) {
+                $('#doors').append('<option value="' + $(this).data('selected-value') + '">' + $(this).find('span').text() + '</option>')
+            })
+            $('#min_seats').html('')
+            $('<div>' + data.html1.fields[16].minField.html + '</div>').find('option').each(function (key, value) {
+                $('#min_seats').append('<option value="' + $(this).val() + '">' + $(this).text() + '</option>')
+            })
+            $('#max_seats').html('')
+            $('<div>' + data.html1.fields[16].maxField.html + '</div>').find('option').each(function (key, value) {
+                $('#max_seats').append('<option value="' + $(this).val() + '">' + $(this).text() + '</option>')
+            })
+            $('#insurancegroup').html('')
+            $('<div>' + data.html1.fields[17].html + '</div>').find('div').each(function (key, value) {
+                $('#insurancegroup').append('<option value="' + $(this).data('selected-value') + '">' + $(this).find('span').text() + '</option>')
+            })
+            $('#annual_tax').html('<option value="">Any</option>')
+            $('<div>' + data.html1.fields[18].html + '</div>').find('div').each(function (key, value) {
+                $('#annual_tax').append('<option value="' + $(this).data('selected-value') + '">' + $(this).find('span').text() + '</option>')
+            })
+            $('#colour').html('<option value="">Any</option>')
+            $('<div>' + data.html1.fields[19].html + '</div>').find('div').each(function (key, value) {
+                $('#colour').append('<option value="' + $(this).data('selected-value') + '">' + $(this).find('.term').text() + $(this).find('.count').text() + '</option>')
+            })
+            $('#private_trade').html('<option value="">Any</option>')
+            $('<div>' + data.html1.fields[20].html + '</div>').find('div').each(function (key, value) {
+                $('#private_trade').append('<option value="' + $(this).data('selected-value') + '">' + $(this).find('.term').text() + $(this).find('.count').text() + '</option>')
             })
             $('#loading').css('display', 'none')
             $('#radius').val(formData.radius)

@@ -233,70 +233,72 @@ app.get('/auto-search-results', async function (req, res, next) {
                     console.log('first response come')
                     const html = response.data;
                     const $ = cheerio.load(html);
+                    var html2;
                     var path2 = 'https://www.motors.co.uk/search/car/updatesearchpanel';
                     axios.post(path2, searchPanelParameters)
                             .then((response2) => {
-                                const html2 = response2.data;
-                                var cars = {}, filters = {}, radius = {}, make = {}, model = {}, model_variant = {}, aggregatedTrim = {}
-                                $(html.html).find('li.search-page__result').each(function (i, elem) {
-                                    cars[i] = {
-                                        product_id: $(this).attr('id'),
-                                        name: $(this).find('h2').text().trim(),
-                                        image: $(this).find(".listing-main-image .js-click-handler img").attr('src'),
-                                        listings: $(this).find(".listing-key-specs").html(),
-                                        title: $(this).find("p.listing-attention-grabber").text(),
-                                        description: $(this).find("p").text(),
-                                        price: $(this).find(".vehicle-price").text(),
-                                    }
-                                });
-                                $('<div>' + html.refinements.fields[0].html + '</div>').find(".value-button").each(function (i, elem) {
-                                    radius[i] = {
-                                        value: $(this).data('selected-value'),
-                                        text: $(this).data('selected-display-name'),
-                                    }
-                                });
-                                $('<div>' + html.refinements.fields[1].html + '</div>').find(".value-button").each(function (i, elem) {
-                                    make[i] = {
-                                        value: $(this).data('selected-value'),
-                                        text: $(this).data('selected-display-name'),
-                                        count: $(this).find('span').text().replace('(', '').replace(')', '').replace($(this).data('selected-display-name'), '')
-                                    }
-                                });
+                                html2 = response2.data;
+
+                            }, (error) => console.log(error));
+                    var cars = {}, filters = {}, radius = {}, make = {}, model = {}, model_variant = {}, aggregatedTrim = {}
+                    $(html.html).find('li.search-page__result').each(function (i, elem) {
+                        cars[i] = {
+                            product_id: $(this).attr('id'),
+                            name: $(this).find('h2').text().trim(),
+                            image: $(this).find(".listing-main-image .js-click-handler img").attr('src'),
+                            listings: $(this).find(".listing-key-specs").html(),
+                            title: $(this).find("p.listing-attention-grabber").text(),
+                            description: $(this).find("p").text(),
+                            price: $(this).find(".vehicle-price").text(),
+                        }
+                    });
+                    $('<div>' + html.refinements.fields[0].html + '</div>').find(".value-button").each(function (i, elem) {
+                        radius[i] = {
+                            value: $(this).data('selected-value'),
+                            text: $(this).data('selected-display-name'),
+                        }
+                    });
+                    $('<div>' + html.refinements.fields[1].html + '</div>').find(".value-button").each(function (i, elem) {
+                        make[i] = {
+                            value: $(this).data('selected-value'),
+                            text: $(this).data('selected-display-name'),
+                            count: $(this).find('span').text().replace('(', '').replace(')', '').replace($(this).data('selected-display-name'), '')
+                        }
+                    });
 //                                $(make).each(function (key, value) {
 //                                    console.log(value)
 //                                    console.log(html2.MakeModels.indexOf(value.text))
 //                                })
-                                $('<div>' + html.refinements.fields[2].html + '</div>').find(".value-button").each(function (i, elem) {
-                                    model[i] = {
-                                        value: $(this).data('selected-value'),
-                                        text: $(this).data('selected-display-name'),
-                                        count: $(this).find('span').text().replace('(', '').replace(')', '').replace($(this).data('selected-display-name'), ''),
-                                    }
-                                });
-                                $('<div>' + html.refinements.fields[3].html + '</div>').find(".value-button").each(function (i, elem) {
-                                    aggregatedTrim[i] = {
-                                        value: $(this).data('selected-value'),
-                                        text: $(this).data('selected-display-name'),
-                                        count: $(this).find('span').text(),
-                                    }
-                                });
-                                filters = {
-                                    radius: radius,
-                                    make: make,
-                                    model: model,
-                                    aggregatedTrim: aggregatedTrim
-                                }
-                                data = {
-                                    filters: filters,
-                                    html1: html.refinements,
-                                    html2: html2,
-                                    count: parseInt(html.refinements.count.replace(' cars found', '').replace(/,/g, '')) + parseInt(html2.RecordCount),
-                                    cars: cars,
-                                    searchPanelParameters: searchPanelParameters
-                                }
-                                res.writeHead(200, {'Content-Type': 'application/json'});
-                                res.end(JSON.stringify(data));
-                            }, (error) => console.log(error));
+                    $('<div>' + html.refinements.fields[2].html + '</div>').find(".value-button").each(function (i, elem) {
+                        model[i] = {
+                            value: $(this).data('selected-value'),
+                            text: $(this).data('selected-display-name'),
+                            count: $(this).find('span').text().replace('(', '').replace(')', '').replace($(this).data('selected-display-name'), ''),
+                        }
+                    });
+                    $('<div>' + html.refinements.fields[3].html + '</div>').find(".value-button").each(function (i, elem) {
+                        aggregatedTrim[i] = {
+                            value: $(this).data('selected-value'),
+                            text: $(this).data('selected-display-name'),
+                            count: $(this).find('span').text(),
+                        }
+                    });
+                    filters = {
+                        radius: radius,
+                        make: make,
+                        model: model,
+                        aggregatedTrim: aggregatedTrim
+                    }
+                    data = {
+                        filters: filters,
+                        html1: html.refinements,
+                        html2: html2,
+//                        count: parseInt(html.refinements.count.replace(' cars found', '').replace(/,/g, '')) + parseInt(html2.RecordCount),
+                        cars: cars,
+                        searchPanelParameters: searchPanelParameters
+                    }
+                    res.writeHead(200, {'Content-Type': 'application/json'});
+                    res.end(JSON.stringify(data));
                 }
             }
             , (error) => console.log(err));
