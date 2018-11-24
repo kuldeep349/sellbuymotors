@@ -17,7 +17,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-sm-12 justify-content-center text-center">
-                <h1 class="text-white c-font-weight-700">List Cars Listing</h1>
+                <h1 class="text-white c-font-weight-700" id="search_type">List Cars Listing</h1>
             </div>
         </div>
     </div>
@@ -51,7 +51,7 @@
                                 <div class="col-12 col-sm-6 col-md-4 col-xl-12">
                                     <label class="c-dark">Postal Code</label>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="postal_code"/>
+                                        <input type="text" class="form-control rounded" id="postal_code"/>
                                     </div>
                                 </div> 
                                 <div class="col-12 col-sm-6 col-md-4 col-xl-12">
@@ -152,14 +152,14 @@
                                 <div class="col-12 col-sm-6 col-md-4 col-xl-12">
                                     <label class="c-dark">Engine Size From</label>
                                     <div class="form-group">
-                                        <select class="form-control rounded" id="engine_size_from">
+                                        <select class="form-control rounded" id="maximum-badge-engine-size">
                                         </select>
                                     </div>
                                 </div> 
                                 <div class="col-12 col-sm-6 col-md-4 col-xl-12">
                                     <label class="c-dark">Engine Size To</label>
                                     <div class="form-group">
-                                        <select class="form-control rounded" id="engine_size_to">
+                                        <select class="form-control rounded" id="minimum-badge-engine-size">
                                         </select>
                                     </div>
                                 </div> 
@@ -173,14 +173,14 @@
                                 <div class="col-12 col-sm-6 col-md-4 col-xl-12">
                                     <label class="c-dark">Acceleration</label>
                                     <div class="form-group">
-                                        <select class="form-control rounded" id="accelearation">
+                                        <select class="form-control rounded" id="zero-to-60">
                                         </select>
                                     </div>
                                 </div> 
                                 <div class="col-12 col-sm-6 col-md-4 col-xl-12">
                                     <label class="c-dark">Gearbox</label>
                                     <div class="form-group">
-                                        <select class="form-control rounded" id="gearbox">
+                                        <select class="form-control rounded" id="transmission">
                                         </select>
                                     </div>
                                 </div> 
@@ -194,42 +194,42 @@
                                 <div class="col-12 col-sm-6 col-md-4 col-xl-12">
                                     <label class="c-dark">Co 2 Emission</label>
                                     <div class="form-group">
-                                        <select class="form-control rounded" id="co2emission">
+                                        <select class="form-control rounded" id="co2-emissions-cars">
                                         </select>
                                     </div>
                                 </div> 
                                 <div class="col-12 col-sm-6 col-md-4 col-xl-12">
                                     <label class="c-dark">Doors</label>
                                     <div class="form-group">
-                                        <select class="form-control rounded" id="doors">
+                                        <select class="form-control rounded" id="quantity-of-doors">
                                         </select>
                                     </div>
                                 </div> 
                                 <div class="col-12 col-sm-6 col-md-4 col-xl-12">
                                     <label class="c-dark">Min Seats</label>
                                     <div class="form-group">
-                                        <select class="form-control rounded" id="min_seats">
+                                        <select class="form-control rounded" id="minimum-seats">
                                         </select>
                                     </div>
                                 </div> 
                                 <div class="col-12 col-sm-6 col-md-4 col-xl-12">
                                     <label class="c-dark">Max Seats</label>
                                     <div class="form-group">
-                                        <select class="form-control rounded" id="max_seats">
+                                        <select class="form-control rounded" id="maximum-seats">
                                         </select>
                                     </div>
                                 </div> 
                                 <div class="col-12 col-sm-6 col-md-4 col-xl-12">
                                     <label class="c-dark">InsuranceGroup</label>
                                     <div class="form-group">
-                                        <select class="form-control rounded" id="insurancegroup">
+                                        <select class="form-control rounded" id="insuranceGroup">
                                         </select>
                                     </div>
                                 </div> 
                                 <div class="col-12 col-sm-6 col-md-4 col-xl-12">
                                     <label class="c-dark">Annual Tax</label>
                                     <div class="form-group">
-                                        <select class="form-control rounded" id="annual_tax">
+                                        <select class="form-control rounded" id="annual-tax-cars">
                                         </select>
                                     </div>
                                 </div> 
@@ -243,7 +243,7 @@
                                 <div class="col-12 col-sm-6 col-md-4 col-xl-12">
                                     <label class="c-dark">Private & Trade</label>
                                     <div class="form-group">
-                                        <select class="form-control rounded" id="private_trade">
+                                        <select class="form-control rounded" id="seller-type">
                                         </select>
                                     </div>
                                 </div> 
@@ -267,7 +267,7 @@
                             <p class="mb-0" id="foundCar">Finding</p>
                         </div>
                         <div class="col-12 col-md-5 col-xl-6 align-self-center" id="loading" style="display:none;">
-                            <img src="dist/images/preloader.gif" style="height:100% width:100%"/>
+                            <img src="dist/images/preloader.gif" style="height:100% ;width:100%"/>
                         </div>
                     </div>
                     <div class="card car-listing-full mb-4" id="ProductShow">
@@ -352,6 +352,7 @@
 <%- include ../sitelayouts/footer.ejs %>
 <script>
     var base_url = window.location.origin;
+    $('#search_type').text(GetParameterValues('onesearchad') + ' Cars');
     function removeURLParameter(parameter) {
         var url = window.location.search;
         var urlparts = url.split('?');
@@ -385,10 +386,10 @@
 
     function get_filter_value(param) {
         var value = $('#' + param).val();
-        if (!value) {
+        if (value == undefined) {
             value = GetParameterValues(param);
         }
-        if (!value) {
+        if (value == undefined) {
             value = '';
         }
         return value;
@@ -404,7 +405,28 @@
             sort: get_filter_value('sort'),
             price_from: get_filter_value('price_from'),
             price_to: get_filter_value('price_to'),
+            year_from: get_filter_value('year_from'),
+            year_to: get_filter_value('year_to'),
+            mileage_from: get_filter_value('mileage_from'),
+            mileage_to: get_filter_value('mileage_to'),
+            body_type: get_filter_value('body_type'),
+            fuel_type: get_filter_value('fuel_type'),
+            minimum_badge_engine_size: get_filter_value('minimum-badge-engine-size'),
+            maximum_badge_engine_size: get_filter_value('maximum-badge-engine-size'),
+            fuel_consumption: get_filter_value('fuel_consumption'),
+            zero_to_60: get_filter_value('zero-to-60'),
+            transmission: get_filter_value('transmission'),
+            drivetrain: get_filter_value('drivetrain'),
+            co2_emissions_cars: get_filter_value('co2-emissions-cars'),
+            quantity_of_doors: get_filter_value('quantity-of-doors'),
+            minimum_seats: get_filter_value('minimum-seats'),
+            maximum_seats: get_filter_value('maximum-seats'),
+            insuranceGroup: get_filter_value('insuranceGroup'),
+            annual_tax_cars: get_filter_value('annual-tax-cars'),
+            colour: get_filter_value('colour'),
+            seller_type: get_filter_value('seller-type'),
         }
+        console.log(formData)
         var url = base_url + '/auto-search-results';
         $('#loading').css('display', 'block')
         $.get(url, formData, function (data) {
@@ -463,85 +485,85 @@
                 $('#price_to').append('<option value="' + $(this).val() + '">' + $(this).text() + '</option>')
             })
             $('#year_from').html('')
-            $('<div>' + data.html1.fields[5].maxField.html + '</div>').find('option').each(function (key, value) {
+            $('<div>' + data.html1.fields[5].minField.html + '</div>').find('option').each(function (key, value) {
                 $('#year_from').append('<option value="' + $(this).val() + '">' + $(this).text() + '</option>')
             })
             $('#year_to').html('')
-            $('<div>' + data.html1.fields[5].minField.html + '</div>').find('option').each(function (key, value) {
+            $('<div>' + data.html1.fields[5].maxField.html + '</div>').find('option').each(function (key, value) {
                 $('#year_to').append('<option value="' + $(this).val() + '">' + $(this).text() + '</option>')
             })
             $('#mileage_from').html('')
-            $('<div>' + data.html1.fields[6].maxField.html + '</div>').find('option').each(function (key, value) {
+            $('<div>' + data.html1.fields[6].minField.html + '</div>').find('option').each(function (key, value) {
                 $('#mileage_from').append('<option value="' + $(this).val() + '">' + $(this).text() + '</option>')
             })
             $('#mileage_to').html('')
-            $('<div>' + data.html1.fields[6].minField.html + '</div>').find('option').each(function (key, value) {
+            $('<div>' + data.html1.fields[6].maxField.html + '</div>').find('option').each(function (key, value) {
                 $('#mileage_to').append('<option value="' + $(this).val() + '">' + $(this).text() + '</option>')
             })
             $('#body_type').html('<option value="">Any</option>')
             $('<div>' + data.html1.fields[7].html + '</div>').find('div').each(function (key, value) {
-                $('#body_type').append('<option value="' + $(this).find('label').data('selected-value') + '">' + $(this).find('label').data('selected-display-name') + '</option>')
+                $('#body_type').append('<option value="' + $(this).find('label').data('selected-value') + '">' + $(this).find('label').data('selected-display-name') + $(this).find('.count').text() + '</option>')
             })
             $('#fuel_type').html('<option value="">Any</option>')
             $('<div>' + data.html1.fields[8].html + '</div>').find('div').each(function (key, value) {
-                $('#fuel_type').append('<option value="' + $(this).find('label').data('selected-value') + '">' + $(this).find('label').data('selected-display-name') + '</option>')
+                $('#fuel_type').append('<option value="' + $(this).find('label').data('selected-value') + '">' + $(this).find('label').data('selected-display-name') + $(this).find('.count').text() + '</option>')
             })
-            $('#engine_size_from').html('')
+            $('#maximum-badge-engine-size').html('')
             $('<div>' + data.html1.fields[9].maxField.html + '</div>').find('option').each(function (key, value) {
-                $('#engine_size_from').append('<option value="' + $(this).val() + '">' + $(this).text() + '</option>')
+                $('#maximum-badge-engine-size').append('<option value="' + $(this).val() + '">' + $(this).text() + '</option>')
             })
-            $('#engine_size_to').html('')
+            $('#minimum-badge-engine-size').html('')
             $('<div>' + data.html1.fields[9].minField.html + '</div>').find('option').each(function (key, value) {
-                $('#engine_size_to').append('<option value="' + $(this).val() + '">' + $(this).text() + '</option>')
+                $('#minimum-badge-engine-size').append('<option value="' + $(this).val() + '">' + $(this).text() + '</option>')
             })
 //            console.log(data.html1.fields[10].html)
             $('#fuel_consumption').html('<option value="">Any</option>')
             $('<div>' + data.html1.fields[10].html + '</div>').find('div').each(function (key, value) {
                 $('#fuel_consumption').append('<option value="' + $(this).data('selected-value') + '">' + $(this).find('span').text() + '</option>')
             })
-            $('#accelearation').html('<option value="">Any</option>')
+            $('#zero-to-60').html('<option value="">Any</option>')
             $('<div>' + data.html1.fields[11].html + '</div>').find('div').each(function (key, value) {
-                $('#accelearation').append('<option value="' + $(this).data('selected-value') + '">' + $(this).find('span').text() + '</option>')
+                $('#zero-to-60').append('<option value="' + $(this).data('selected-value') + '">' + $(this).find('span').text() + '</option>')
             })
-            $('#gearbox').html('<option value="">Any</option>')
+            $('#transmission').html('<option value="">Any</option>')
             $('<div>' + data.html1.fields[12].html + '</div>').find('div').each(function (key, value) {
-                $('#gearbox').append('<option value="' + $(this).data('selected-value') + '">' + $(this).find('span').text() + '</option>')
+                $('#transmission').append('<option value="' + $(this).data('selected-value') + '">' + $(this).find('span').text() + '</option>')
             })
             $('#drivetrain').html('<option value="">Any</option>')
             $('<div>' + data.html1.fields[13].html + '</div>').find('div').each(function (key, value) {
                 $('#drivetrain').append('<option value="' + $(this).data('selected-value') + '">' + $(this).find('span').text() + '</option>')
             })
-            $('#co2emission').html('<option value="">Any</option>')
+            $('#co2-emissions-cars').html('<option value="">Any</option>')
             $('<div>' + data.html1.fields[14].html + '</div>').find('div').each(function (key, value) {
-                $('#co2emission').append('<option value="' + $(this).data('selected-value') + '">' + $(this).find('span').text() + '</option>')
+                $('#co2-emissions-cars').append('<option value="' + $(this).data('selected-value') + '">' + $(this).find('span').text() + '</option>')
             })
-            $('#doors').html('<option value="">Any</option>')
+            $('#quantity-of-doors').html('<option value="">Any</option>')
             $('<div>' + data.html1.fields[15].html + '</div>').find('div').each(function (key, value) {
-                $('#doors').append('<option value="' + $(this).data('selected-value') + '">' + $(this).find('span').text() + '</option>')
+                $('#quantity-of-doors').append('<option value="' + $(this).data('selected-value') + '">' + $(this).find('span').text() + '</option>')
             })
-            $('#min_seats').html('')
+            $('#minimum-seats').html('')
             $('<div>' + data.html1.fields[16].minField.html + '</div>').find('option').each(function (key, value) {
-                $('#min_seats').append('<option value="' + $(this).val() + '">' + $(this).text() + '</option>')
+                $('#minimum-seats').append('<option value="' + $(this).val() + '">' + $(this).text() + '</option>')
             })
-            $('#max_seats').html('')
+            $('#maximum-seats').html('')
             $('<div>' + data.html1.fields[16].maxField.html + '</div>').find('option').each(function (key, value) {
-                $('#max_seats').append('<option value="' + $(this).val() + '">' + $(this).text() + '</option>')
+                $('#maximum-seats').append('<option value="' + $(this).val() + '">' + $(this).text() + '</option>')
             })
-            $('#insurancegroup').html('')
+            $('#insuranceGroup').html('')
             $('<div>' + data.html1.fields[17].html + '</div>').find('div').each(function (key, value) {
-                $('#insurancegroup').append('<option value="' + $(this).data('selected-value') + '">' + $(this).find('span').text() + '</option>')
+                $('#insuranceGroup').append('<option value="' + $(this).data('selected-value') + '">' + $(this).find('span').text() + '</option>')
             })
-            $('#annual_tax').html('<option value="">Any</option>')
+            $('#annual-tax-cars').html('<option value="">Any</option>')
             $('<div>' + data.html1.fields[18].html + '</div>').find('div').each(function (key, value) {
-                $('#annual_tax').append('<option value="' + $(this).data('selected-value') + '">' + $(this).find('span').text() + '</option>')
+                $('#annual-tax-cars').append('<option value="' + $(this).data('selected-value') + '">' + $(this).find('span').text() + '</option>')
             })
             $('#colour').html('<option value="">Any</option>')
             $('<div>' + data.html1.fields[19].html + '</div>').find('div').each(function (key, value) {
-                $('#colour').append('<option value="' + $(this).data('selected-value') + '">' + $(this).find('.term').text() + $(this).find('.count').text() + '</option>')
+                $('#colour').append('<option value="' + $(this).find('.term').text() + '">' + $(this).find('.term').text() + $(this).find('.count').text() + '</option>')
             })
-            $('#private_trade').html('<option value="">Any</option>')
+            $('#seller-type').html('<option value="">Any</option>')
             $('<div>' + data.html1.fields[20].html + '</div>').find('div').each(function (key, value) {
-                $('#private_trade').append('<option value="' + $(this).data('selected-value') + '">' + $(this).find('.term').text() + $(this).find('.count').text() + '</option>')
+                $('#seller-type').append('<option value="' + $(this).data('selected-value') + '">' + $(this).find('.term').text() + $(this).find('.count').text() + '</option>')
             })
             $('#loading').css('display', 'none')
             $('#radius').val(formData.radius)
@@ -551,6 +573,26 @@
             $('#sort').val(formData.sort)
             $('#price_from').val(formData.price_from)
             $('#price_to').val(formData.price_to)
+            $('#postal_code').val(formData.postal_code)
+            $('#year_from').val(formData.year_from)
+            $('#year_to').val(formData.year_to)
+            $('#mileage_from').val(formData.mileage_from)
+            $('#mileage_to').val(formData.mileage_to)
+            $('#body_type').val(formData.body_type)
+            $('#fuel_type').val(formData.fuel_type)
+            $('#maximum-badge-engine-size').val(formData.maximum_badge_engine_size)
+            $('#minimum-badge-engine-size').val(formData.minimum_badge_engine_size)
+            $('#fuel_consumption').val(formData.fuel_consumption)
+            $('#zero-to-60').val(formData.zero_to_60)
+            $('#transmission').val(formData.transmission)
+            $('#drivetrain').val(formData.drivetrain)
+            $('#co2-emissions-cars').val(formData.co2_emissions_cars)
+            $('#quantity-of-doors').val(formData.quantity_of_doors)
+            $('#minimum-seats').val(formData.minimum_seats)
+            $('#maximum-seats').val(formData.maximum_seats)
+            $('#annual-tax-cars').val(formData.annual_tax_cars)
+            $('#colour').val(formData.colour)
+            $('#seller-type').val(formData.seller_type)
 //            console.log(formData)
             var c_url = '';
             $.each(formData, function (key, value) {

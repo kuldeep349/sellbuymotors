@@ -233,7 +233,12 @@ app.get('/auto-search-results', async function (req, res, next) {
     } else {
         onesearchad = 'Used&onesearchad=Nearly%20New&onesearchad=New';
     }
-    var path = 'https://www.autotrader.co.uk/results-car-search?sort=' + q.sort + '&radius=' + q.radius + '&make=' + q.make + '&model=' + q.model + '&aggregatedTrim=' + q.aggregatedTrim + '&onesearchad=' + onesearchad + '&price-from=' + q.price_from + '&price-to=' + q.price_to;
+    var path = 'https://www.autotrader.co.uk/results-car-search?sort=' + q.sort + '&radius=' + q.radius + '&make=' + q.make + '&model=' + q.model + '&aggregatedTrim=' + q.aggregatedTrim + '&onesearchad=' + onesearchad
+            + '&price-from=' + q.price_from + '&price-to=' + q.price_to + '&postcode=' + q.postal_code + '&year-from=' + q.year_from + '&year-to=' + q.year_to + '&minimum-mileage=' + q.mileage_from + '&maximum-mileage=' +
+            q.mileage_to + '&body-type=' + q.body_type + '&fuel-type=' + q.fuel_type + '&minimum-badge-engine-size=' + q.minimum_badge_engine_size + '&maximum-badge-engine-size=' + q.maximum_badge_engine_size
+            + '&fuel-consumption=' + q.fuel_consumption + '&zero-to-60=' + q.zero_to_60 + '&transmission=' + q.transmission + '&drivetrain=' + q.drivetrain + '&co2-emissions-cars='
+            + q.co2_emissions_cars + '&quantity-of-doors=' + q.quantity_of_doors + '&minimum-seats=' + q.minimum_seats + '&maximum-seats=' + q.maximum_seats + '&insuranceGroup=' + q.insuranceGroup +
+            '&annual-tax-cars=' + q.annual_tax_cars + '&colour=' + q.colour + '&seller-type=' + q.seller_type;
     axios.get(path)
             .then((response) => {
                 if (response.status === 200) {
